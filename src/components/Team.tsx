@@ -80,27 +80,6 @@ const Team: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center bg-gradient-to-r from-pink-50 to-pink-100 rounded-3xl p-12">
-          <img 
-            src={IMAGES.team.teamCollaboration}
-            alt="Team collaboration and youth empowerment"
-            className="w-full h-48 object-cover rounded-2xl mb-8"
-          />
-          <h3 className="text-3xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">
-              Join Our Movement
-            </span>
-          </h3>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            We're always looking for passionate individuals to join our team and help 
-            create positive change in communities across Malaysia and beyond.
-          </p>
-          <button className="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-            Get Involved
-          </button>
-        </div>
       </div>
     </section>
   );

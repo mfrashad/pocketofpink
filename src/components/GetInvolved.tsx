@@ -67,30 +67,6 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
           </p>
         </div>
 
-        {/* Volunteer Opportunities */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
-            Volunteer Opportunities
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {volunteerOpportunities.map((opportunity, index) => {
-              const IconComponent = opportunity.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 group text-center"
-                >
-                  <div className={`w-20 h-20 bg-gradient-to-r ${opportunity.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto`}>
-                    <IconComponent className="w-10 h-10 text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-800 mb-4">{opportunity.title}</h4>
-                  <p className="text-gray-600 leading-relaxed">{opportunity.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Join the Team */}
         <div className="bg-white rounded-3xl p-12 shadow-xl mb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

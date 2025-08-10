@@ -15,10 +15,7 @@ const Header: React.FC<HeaderProps> = ({ onDonateClick }) => {
     { name: 'Mission', href: '#mission' },
     { name: 'Team', href: '#team' },
     { name: 'Initiatives', href: '#initiatives' },
-    { name: 'Express to Empower', href: '#/express-to-empower' },
-    { name: 'Alt//orithm', href: '#/altorithm' },
     { name: 'Media', href: '#media' },
-    { name: 'Supporters', href: '#supporters' },
     { name: 'Get Involved', href: '#get-involved' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -31,12 +28,23 @@ const Header: React.FC<HeaderProps> = ({ onDonateClick }) => {
     setIsMenuOpen(false);
   };
 
+  const goHome = () => {
+    if (window.location.hash !== '#home') {
+      window.location.hash = '#home';
+    }
+    const element = document.querySelector('#home');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-pink-100 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+          <button onClick={goHome} className="flex items-center space-x-3 group">
+            <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-1 ring-pink-200 group-hover:ring-pink-400 transition">
               <img
                 src={IMAGES.logo.main}
                 alt="Pocket of Pink Logo"
@@ -46,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ onDonateClick }) => {
             <span className="text-xl font-bold bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">
               Pocket of Pink
             </span>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

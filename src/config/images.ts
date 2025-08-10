@@ -20,7 +20,7 @@ export const IMAGES = {
 
   // Mission & Vision Section
   mission: {
-    creativeEmpowerment: "images/workshop1.jpg",
+    creativeEmpowerment: "images/expresstoempower-2.jpg",
     accessibleEducation: "images/workshop2.jpg",
     challengeNorms: "images/workshop3.jpg",
     advocacyCSE: "images/workshop4.jpg",
@@ -51,7 +51,25 @@ export const IMAGES = {
   // Projects Section
   projects: {
     expressToEmpowerBook: "https://images.squarespace-cdn.com/content/6720a89eceb09d1b4180431a/e8719adb-8346-4358-85ab-4bb2d0efeabe/Cover.png?content-type=image%2Fpng",
-    cartoonIllustrations: "https://images.squarespace-cdn.com/content/6720a89eceb09d1b4180431a/35eb8ba7-4a64-4032-9253-17a8a10ea639/IMG_0746.PNG?content-type=image%2Fpng"
+    altorithm: "images/altorithm.png",
+    expressToEmpower: "images/expresstoempower-1.jpg"
+  },
+
+  expressToEmpower: {
+    ourResponse: "images/workshop5.jpg",
+    // Photos for the "Case in Point" section (Sri KDU workshop)
+    caseInPoint: [
+      "images/srikdu.jpg",
+      "images/srikdu-2.jpg",
+      "images/srikdu-3.jpg",
+    ],
+    // Visual for "Why Art? Why Now?"
+    whyArt: "images/expresstoempower-3.jpg",
+    // Visuals for "How It Works"
+    howItWorks: {
+      teachersWorkshop: "images/workshop6.jpg",
+      pocketPalHome: "images/expresstoempower-2.jpg",
+    },
   },
 
   // Get Involved Section
