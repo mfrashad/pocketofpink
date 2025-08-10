@@ -1,194 +1,164 @@
-import React from 'react';
-import { ArrowRight, Layers, Shield, Users, Megaphone, Globe, Code, Zap } from 'lucide-react';
-import { IMAGES } from '../config/images';
-
-const Card: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => (
-  <div className={`bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ${className || ''}`}>{children}</div>
-);
-
-const Stat: React.FC<{ value: string; label: string }> = ({ value, label }) => (
-  <div className="text-center bg-white/70 backdrop-blur rounded-2xl p-6 shadow">
-    <div className="text-3xl font-extrabold text-pink-600">{value}</div>
-    <div className="text-gray-700">{label}</div>
-  </div>
-);
+import React, { useState } from 'react';
+import DonationModal from '../components/DonationModal';
 
 const Altorithm: React.FC = () => {
+  const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+
   return (
-    <main className="pt-20 md:pt-24">
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-pink-100 to-pink-200" />
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-15"
-            style={{ backgroundImage: `url('${IMAGES.hero.background}')` }}
-          />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-                <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400 bg-clip-text text-transparent">Alt//orithm</span>
+    <>
+      <div className="bg-black text-white font-sans">
+        {/* Hero Section */}
+        <section className="min-h-screen flex items-center relative bg-[radial-gradient(ellipse_at_center,rgba(255,107,157,0.1)_0%,rgba(0,0,0,0.8)_70%)]">
+          <div className="absolute inset-0 bg-no-repeat bg-center bg-contain opacity-5" style={{backgroundImage: 'url(/images/altorithm-transparent.png)'}}></div>
+          <div className="container max-w-7xl mx-auto px-5 relative">
+            <div className="max-w-4xl z-10">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-5">
+                Rewriting the code for a safer digital future
               </h1>
-              <p className="text-xl text-gray-700 mb-8">Rewriting the code for a safer digital future</p>
-              <div className="flex flex-wrap gap-4">
-                <a href="https://forms.gle/4gK26h2uZDrEe1rk8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-gradient-to-r from-pink-600 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg">
-                  Join the Community <ArrowRight className="w-5 h-5 ml-2" />
+              <p className="text-2xl text-designPink font-semibold mb-7">
+                Take Back the Feed. Rewrite the Code.
+              </p>
+              <p className="text-lg text-gray-300 mb-10 leading-relaxed">
+                Alt//orithm transforms youth from passive algorithm subjects into active shapers of their digital environments. By centring gender justice, amplifying diverse youth voices, and building cross-sector coalitions, we are creating a blueprint for an internet that liberates — not limits.
+              </p>
+              <div className="flex gap-5 flex-wrap">
+                <a href="https://forms.gle/4gK26h2uZDrEe1rk8" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-semibold text-black bg-gradient-to-r from-designPink to-designCyan transition-transform hover:scale-105">
+                  Join the Community →
                 </a>
-                <a href="#donate" className="inline-flex items-center border-2 border-pink-600 text-pink-600 px-6 py-3 rounded-full font-semibold hover:bg-pink-50">
-                  Support the Work <ArrowRight className="w-5 h-5 ml-2" />
+                <a href="#mission" className="px-8 py-4 rounded-full font-semibold border-2 border-white transition hover:bg-white hover:text-black">
+                  Learn More
                 </a>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-4">
-              <Stat value="65%" label="Face gendered abuse online" />
-              <Stat value="60%" label="Echo-chamber exposure" />
-              <Stat value="21.4M" label="#MakeSchoolASaferPlace views" />
-            </div>
           </div>
-        </div>
-      </section>
+          <div className="absolute top-1/4 left-[10%] text-designCyan/30 font-mono text-sm animate-float pointer-events-none">
+            if (algorithm == harmful) {'{'} rewrite(); {'}'}
+          </div>
+          <div className="absolute top-3/5 right-[15%] text-designCyan/30 font-mono text-sm animate-float [animation-delay:-2s] pointer-events-none">
+            function amplify(youth_voices) {'{'} return liberation; {'}'}
+          </div>
+          <div className="absolute bottom-1/3 left-[20%] text-designCyan/30 font-mono text-sm animate-float [animation-delay:-4s] pointer-events-none">
+            const future = inclusive && safe;
+          </div>
+        </section>
 
-      {/* The Challenge */}
-      <section className="py-16 bg-gradient-to-br from-pink-50 via-pink-100 to-pink-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">The Challenge</span>
+        {/* Challenge Section */}
+        <section id="challenge" className="py-24 bg-gradient-to-b from-black to-[#111]">
+          <div className="container max-w-7xl mx-auto px-5">
+            <h2 className="text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-designPink to-designCyan text-transparent bg-clip-text">
+              The Challenge
             </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">AI-driven algorithms quietly decide what we see, believe, and who gets heard — often amplifying harm.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: Shield, title: 'Amplified Abuse', desc: 'Algorithmic feeds can boost exposure to harassment and hate.' },
-              { icon: Layers, title: 'Echo Chambers', desc: 'Feeds reinforce beliefs and normalise harmful norms.' },
-              { icon: Megaphone, title: 'Suppressed Activism', desc: 'Opaque moderation deprioritises feminist and activist voices.' },
-            ].map((c, i) => {
-              const Icon = c.icon as any;
-              return (
-                <Card key={i} className="p-8 text-center border border-pink-100">
-                  <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-4"><Icon className="w-8 h-8" /></div>
-                  <div className="font-semibold text-gray-800 mb-2">{c.title}</div>
-                  <p className="text-gray-600 text-sm">{c.desc}</p>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Why We Started */}
-      <section className="py-16 bg-gradient-to-br from-pink-50 via-pink-100 to-pink-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
-          <div className="rounded-3xl overflow-hidden shadow-2xl">
-            <img src={IMAGES.mission.visionChildren} alt="Youth activism" className="w-full h-96 object-cover" />
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">Why We Started Alt//orithm</span>
-            </h2>
-            <p className="text-gray-700 mb-4">Our team’s activism showed both the power and peril of digital spaces. In 2021, #MakeSchoolASaferPlace reached 21.4M views and helped reignite momentum for Malaysia’s Anti-Sexual Harassment Bill.</p>
-            <p className="text-gray-700">Visibility, however, brought targeted harassment and online violence — often algorithmically amplified. We asked: how do algorithms shape gendered, polarised experiences for youth, and how can they be reimagined?</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Mission */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">Our Mission</span>
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">We combine community research, creative storytelling, and policy advocacy to disrupt harmful algorithmic patterns.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: Code, title: 'Map the Code', desc: 'Understand how algorithms reinforce gendered harm and polarisation.' },
-              { icon: Users, title: 'Equip Youth', desc: 'Build literacy and tools to take control of feeds and narratives.' },
-              { icon: Globe, title: 'Policy Change', desc: 'Push for platform accountability and transparency.' },
-            ].map((c, i) => {
-              const Icon = c.icon as any;
-              return (
-                <Card key={i} className="p-6 text-center">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-r from-pink-500 to-pink-600 text-white flex items-center justify-center">
-                    <Icon className="w-7 h-7" />
-                  </div>
-                  <div className="font-semibold text-gray-800 mb-2">{c.title}</div>
-                  <p className="text-gray-600 text-sm">{c.desc}</p>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work */}
-      <section className="py-16 bg-gradient-to-br from-pink-50 via-pink-100 to-pink-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">How We Work</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="p-8">
-              <h3 className="text-xl font-bold mb-3">Phase 1: Mapping the Code</h3>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Youth workshops exploring algorithmic bias and online harm.</li>
-                <li>Focus groups with NGOs to identify barriers to counter-narratives.</li>
-                <li>Panel discussions on tactical approaches to algorithmic resistance.</li>
-              </ul>
-            </Card>
-            <Card className="p-8">
-              <h3 className="text-xl font-bold mb-3">Phase 2: Writing New Instructions</h3>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Digital campaigns translating research into accessible media.</li>
-                <li>Toolkits for algorithmic literacy and safer online engagement.</li>
-                <li>Policy recommendations for inclusive moderation and transparency.</li>
-              </ul>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision & CTA */}
-      <section className="py-16 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-pink-600 opacity-95" />
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cpattern id=%22grid%22 width=%2220%22 height=%2220%22 patternUnits=%22userSpaceOnUse%22%3E%3Cpath d=%22M 20 0 L 0 0 0 20%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%220.5%22 opacity=%220.07%22/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23grid)%22/%3E%3C/svg%3E')]" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-              <p className="text-lg opacity-95 mb-6">Alt//orithm transforms youth from passive algorithm subjects into active shapers of their digital environments. We are creating a blueprint for an internet that liberates — not limits.</p>
-              <p className="font-semibold">Take Back the Feed. Rewrite the Code.</p>
-            </div>
-            <div className="text-center">
-              <div className="grid md:grid-cols-3 gap-4">
-                {[
-                  { value: 'Community', label: 'Join the network' },
-                  { value: 'Co-create', label: 'Build tools with us' },
-                  { value: 'Support', label: 'Fuel youth-led change' },
-                ].map((s) => (
-                  <div key={s.value} className="bg-white/10 rounded-2xl p-6">
-                    <div className="text-2xl font-extrabold">{s.value}</div>
-                    <div className="opacity-90">{s.label}</div>
-                  </div>
-                ))}
+            <div className="grid md:grid-cols-3 gap-10 mb-16">
+              <div className="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm transition-transform hover:-translate-y-1">
+                <h3 className="text-2xl text-designPink font-bold mb-4">Amplify harassment & hate</h3>
+                <span className="text-5xl font-black text-designCyan block mb-3">65%</span>
+                <p className="text-gray-300">of young women in Malaysia face gendered abuse online, with algorithmic feeds boosting hate speech exposure by up to 70%.</p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <a href="https://forms.gle/4gK26h2uZDrEe1rk8" target="_blank" rel="noopener noreferrer" className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl">Join the Community</a>
-                <a href="#donate" className="border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-pink-600">Support the Work</a>
+              <div className="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm transition-transform hover:-translate-y-1">
+                <h3 className="text-2xl text-designPink font-bold mb-4">Lock youth into echo chambers</h3>
+                <span className="text-5xl font-black text-designCyan block mb-3">60%</span>
+                <p className="text-gray-300">say their feeds mostly reinforce existing beliefs, normalising harmful norms.</p>
+              </div>
+              <div className="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm transition-transform hover:-translate-y-1">
+                <h3 className="text-2xl text-designPink font-bold mb-4">Suppress activism</h3>
+                <span className="text-5xl font-black text-designCyan block mb-3">∞</span>
+                <p className="text-gray-300">Opaque moderation "shadow bans" or deprioritises feminist and activist voices.</p>
+              </div>
+            </div>
+            <p className="text-center text-lg text-gray-300 max-w-4xl mx-auto">
+              For young people — regardless of gender — this creates a double bind: the same platforms that spark movements also become arenas of relentless abuse, shaping identities and beliefs in ways few can see, but all can feel.
+            </p>
+          </div>
+        </section>
+
+        {/* Mission Section */}
+        <section id="mission" className="py-24 bg-black">
+          <div className="container max-w-7xl mx-auto px-5">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 className="text-4xl font-extrabold mb-8">Why We Started Alt//orithm</h2>
+                <p className="text-gray-300 mb-5">In 2021, the youth-led hashtag #MakeSchoolASaferPlace became a nationwide rallying cry for safer, more respectful schools. Mobilised almost entirely online, it reached over 21.4 million views and helped reignite a 30-year push for Malaysia's Anti-Sexual Harassment Bill, which was tabled in 2022.</p>
+                <p className="text-gray-300 mb-8">It was proof that digital advocacy can drive real policy change — but it also exposed a darker reality. As visibility grew, so did targeted harassment, threats, and online violence, especially towards young activists.</p>
+                <h3 className="text-designPink text-2xl font-bold mt-8 mb-5">Our Mission</h3>
+                <p className="text-gray-300 mb-5">Alt//orithm exists to interrupt harmful algorithmic patterns and redirect digital systems toward gender justice, civic participation, and youth empowerment.</p>
+                <ul className="space-y-4">
+                  <li className="pl-6 border-l-4 border-designPink font-medium">Map how algorithms reinforce gendered harm and polarisation</li>
+                  <li className="pl-6 border-l-4 border-designPink font-medium">Equip youth to take control of their digital feeds and narratives</li>
+                  <li className="pl-6 border-l-4 border-designPink font-medium">Push for platform accountability without sacrificing freedom of expression</li>
+                </ul>
+              </div>
+              <div>
+                <img src="/images/altorithm-why.jpg" alt="Youth activists working on laptops" className="rounded-3xl shadow-2xl object-cover w-full h-full" />
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        {/* How We Work Section */}
+        <section id="work" className="py-24 bg-gradient-to-b from-black to-[#0a0a0a]">
+          <div className="container max-w-7xl mx-auto px-5">
+            <h2 className="text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-designPink to-designCyan text-transparent bg-clip-text">
+              How We Work
+            </h2>
+            <div className="grid md:grid-cols-2 gap-10">
+              <div className="bg-white/[.03] p-10 rounded-3xl border border-white/10 relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-designPink to-designCyan" />
+                <h3 className="text-3xl font-bold text-designPink mb-5">Phase 1: Mapping the Code</h3>
+                <ul className="space-y-3">
+                  <li className="pl-7 relative text-gray-300 before:content-['→'] before:absolute before:left-0 before:text-designCyan before:font-bold">Youth workshops exploring algorithmic bias and online harm</li>
+                  <li className="pl-7 relative text-gray-300 before:content-['→'] before:absolute before:left-0 before:text-designCyan before:font-bold">Focus groups with NGOs to identify barriers to counter-narratives</li>
+                  <li className="pl-7 relative text-gray-300 before:content-['→'] before:absolute before:left-0 before:text-designCyan before:font-bold">Panel discussions on tactical approaches to algorithmic resistance</li>
+                </ul>
+              </div>
+              <div className="bg-white/[.03] p-10 rounded-3xl border border-white/10 relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-designPink to-designCyan" />
+                <h3 className="text-3xl font-bold text-designPink mb-5">Phase 2: Writing New Instructions</h3>
+                <ul className="space-y-3">
+                  <li className="pl-7 relative text-gray-300 before:content-['→'] before:absolute before:left-0 before:text-designCyan before:font-bold">Digital campaigns translating research into accessible media</li>
+                  <li className="pl-7 relative text-gray-300 before:content-['→'] before:absolute before:left-0 before:text-designCyan before:font-bold">Toolkits for algorithmic literacy and safer online engagement</li>
+                  <li className="pl-7 relative text-gray-300 before:content-['→'] before:absolute before:left-0 before:text-designCyan before:font-bold">Policy recommendations for inclusive moderation and platform transparency</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Join Section */}
+        <section id="join" className="py-24 text-center bg-[linear-gradient(135deg,rgba(255,107,157,0.1),rgba(78,205,196,0.1))]">
+          <div className="container max-w-7xl mx-auto px-5">
+            <h2 className="text-5xl font-black mb-7">Take Back the Feed</h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12">
+              The future of the internet is being written right now — in lines of code, in invisible rules that decide who gets heard and who gets hurt. We don't have to accept an algorithm that thrives on outrage, silences activists, and normalises abuse.
+            </p>
+            <div className="grid md:grid-cols-3 gap-8 mb-12 text-left">
+              <div className="bg-black/50 p-8 rounded-2xl border border-white/10 transition-all hover:-translate-y-1 hover:border-designPink">
+                <h3 className="text-xl font-bold text-designCyan mb-3">Join our founding network</h3>
+                <p className="text-gray-400">Share your experiences, contribute ideas, and help us map how algorithms impact youth in Malaysia.</p>
+              </div>
+              <div className="bg-black/50 p-8 rounded-2xl border border-white/10 transition-all hover:-translate-y-1 hover:border-designPink">
+                <h3 className="text-xl font-bold text-designCyan mb-3">Be part of the build</h3>
+                <p className="text-gray-400">Get early access to workshops and be among the first to test our algorithmic literacy tools.</p>
+              </div>
+              <div className="bg-black/50 p-8 rounded-2xl border border-white/10 transition-all hover:-translate-y-1 hover:border-designPink">
+                <h3 className="text-xl font-bold text-designCyan mb-3">Fuel the movement</h3>
+                <p className="text-gray-400">Donation & support powers youth-led research, creative activism, and policy advocacy for safer digital spaces.</p>
+              </div>
+            </div>
+            <div className="flex gap-5 flex-wrap justify-center">
+              <a href="https://forms.gle/4gK26h2uZDrEe1rk8" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-semibold text-black bg-gradient-to-r from-designPink to-designCyan transition-transform hover:scale-105">
+                Join the Community →
+              </a>
+              <button onClick={() => setIsDonationModalOpen(true)} className="px-8 py-4 rounded-full font-semibold border-2 border-white transition hover:bg-white hover:text-black">
+                Support the Work
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <DonationModal isOpen={isDonationModalOpen} onClose={() => setIsDonationModalOpen(false)} />
+    </>
   );
 };
 
 export default Altorithm;
-
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Users, BookOpen, Heart } from 'lucide-react';
 import { IMAGES } from '../config/images';
+import MovingMediaBanner from './MovingMediaBanner';
 
 interface HeroProps {
   onDonateClick: () => void;
@@ -88,6 +89,11 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
               <div className="text-3xl font-bold text-gray-800 mb-2">Youth-Led</div>
               <div className="text-gray-600">Organization</div>
             </div>
+          </div>
+
+          {/* Moving Media Banner */}
+          <div className="mt-16">
+            <MovingMediaBanner />
           </div>
         </div>
       </div>

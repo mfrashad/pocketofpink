@@ -1,10 +1,28 @@
 import React from 'react';
-import { Mail, Instagram, Linkedin, MapPin, Send } from 'lucide-react';
+import { Mail, Instagram, Linkedin } from 'lucide-react';
+
+const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V9a5 5 0 0 0 5-5" />
+  </svg>
+);
 
 const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">
@@ -17,165 +35,82 @@ const Contact: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-8">Get in Touch</h3>
-            
-            <div className="space-y-6 mb-12">
-              <div className="flex items-center space-x-4 group">
-                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-800">Email</div>
-                  <a href="mailto:kaveesha@pocketofpink.com" className="text-pink-600 hover:text-pink-700 transition-colors">
-                    kaveesha@pocketofpink.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4 group">
-                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-800">Location</div>
-                  <div className="text-gray-600">—</div>
-                </div>
+        {/* Main Contact Card */}
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-gray-50 rounded-2xl p-8">
+            {/* Email Section */}
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
+              <div className="flex items-center justify-center space-x-3 p-4 bg-white rounded-xl shadow-sm">
+                <Mail className="w-5 h-5 text-pink-600" />
+                <a 
+                  href="mailto:kaveesha@pocketofpink.com" 
+                  className="text-pink-600 hover:text-pink-700 font-medium"
+                >
+                  kaveesha@pocketofpink.com
+                </a>
               </div>
             </div>
 
             {/* Social Media */}
-            <h4 className="text-xl font-bold text-gray-800 mb-6">Follow Us</h4>
-            <div className="flex space-x-4">
-              <a
-                href="https://www.instagram.com/pocketofpink/?hl=en"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:shadow-lg transform hover:scale-110 transition-all duration-300"
-              >
-                <Instagram className="w-6 h-6 text-white" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/pocket-of-pink-pop"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:shadow-lg transform hover:scale-110 transition-all duration-300"
-              >
-                <Linkedin className="w-6 h-6 text-white" />
-              </a>
-              <a
-                href="https://x.com/mypocketofpink"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:shadow-lg transform hover:scale-110 transition-all duration-300"
-              >
-                X
-              </a>
+            <div className="text-center mb-8">
+              <h4 className="text-xl font-bold text-gray-800 mb-6">Follow Us</h4>
+              <div className="flex justify-center space-x-4">
+                <a
+                  href="https://www.instagram.com/pocketofpink/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors"
+                >
+                  <Instagram className="w-6 h-6 text-white" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/pocket-of-pink-pop"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
+                >
+                  <Linkedin className="w-6 h-6 text-white" />
+                </a>
+                <a
+                  href="https://x.com/mypocketofpink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-900 transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-white"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@pocketofpink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors"
+                >
+                  <TiktokIcon className="w-6 h-6 text-white" />
+                </a>
+              </div>
             </div>
 
             {/* Quick Info */}
-            <div className="mt-12 bg-gradient-to-r from-pink-50 to-pink-100 rounded-2xl p-6">
-               <h4 className="text-lg font-bold text-gray-800 mb-4">Quick Info</h4>
-              <div className="space-y-2 text-gray-600">
-                <p><strong>Organization Type:</strong> Non-profit, Youth-led</p>
-                <p><strong>Founded:</strong> 2024</p>
-                 <p><strong>Focus:</strong> Gender justice, empowerment & education</p>
-                 <p><strong>Workshop Price:</strong> Contact for pricing</p>
+            <div className="space-y-3">
+              <h4 className="text-lg font-bold text-gray-800 mb-4 text-center">Quick Info</h4>
+              <div className="bg-white rounded-lg p-3 shadow-sm">
+                <span className="font-semibold text-gray-800">Organization:</span>
+                <span className="text-gray-600 ml-2">Non-profit, Youth-led</span>
+              </div>
+              <div className="bg-white rounded-lg p-3 shadow-sm">
+                <span className="font-semibold text-gray-800">Founded:</span>
+                <span className="text-gray-600 ml-2">2024</span>
+              </div>
+              <div className="bg-white rounded-lg p-3 shadow-sm">
+                <span className="font-semibold text-gray-800">Focus:</span>
+                <span className="text-gray-600 ml-2">Gender justice, empowerment & education</span>
+              </div>
+              <div className="bg-white rounded-lg p-3 shadow-sm">
+                <span className="font-semibold text-gray-800">Workshop Price:</span>
+                <span className="text-gray-600 ml-2">Contact for pricing</span>
               </div>
             </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h3>
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
-                    placeholder="Your first name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
-                    placeholder="Your last name"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">
-                  Organization (Optional)
-                </label>
-                <input
-                  type="text"
-                  id="organization"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
-                  placeholder="Your school or organization"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                  Subject
-                </label>
-                <select
-                  id="subject"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300"
-                >
-                  <option>Workshop Inquiry</option>
-                  <option>Volunteer Opportunity</option>
-                  <option>Partnership</option>
-                  <option>Media Inquiry</option>
-                  <option>General Question</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300 resize-none"
-                  placeholder="Tell us about your inquiry..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="group w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <Send className="w-5 h-5" />
-                <span>Send Message</span>
-              </button>
-            </form>
           </div>
         </div>
 
@@ -184,8 +119,8 @@ const Contact: React.FC = () => {
           <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
             Frequently Asked Questions
           </h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
               <h4 className="text-lg font-bold text-gray-800 mb-3">
                 Is the module suitable for all children?
               </h4>
@@ -193,7 +128,7 @@ const Contact: React.FC = () => {
                 Yes, it is designed for primary school-aged children, with plans for expansion to other age groups.
               </p>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
               <h4 className="text-lg font-bold text-gray-800 mb-3">
                 Is POP affiliated with any political or religious group?
               </h4>
@@ -201,7 +136,7 @@ const Contact: React.FC = () => {
                 No, POP is an independent, youth-led non-profit organization.
               </p>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
               <h4 className="text-lg font-bold text-gray-800 mb-3">
                 How can I bring POP to my school?
               </h4>
@@ -209,7 +144,7 @@ const Contact: React.FC = () => {
                 Contact us via email or social media to arrange workshops or order modules for your institution.
               </p>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
               <h4 className="text-lg font-bold text-gray-800 mb-3">
                 What languages is the module available in?
               </h4>

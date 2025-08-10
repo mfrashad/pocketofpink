@@ -140,7 +140,7 @@ const MediaMentions: React.FC = () => {
               We're always happy to share our story and discuss our mission of empowering youth through education and advocacy.
             </p>
             <a
-              href="#contact"
+              href="https://forms.gle/KsfLarS8gD5gRrNy9" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center bg-gradient-to-r from-pink-600 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:from-pink-700 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Contact Us for Media Inquiries
