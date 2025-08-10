@@ -21,21 +21,26 @@ const Header: React.FC<HeaderProps> = ({ onDonateClick }) => {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // Check if we're on a subpage (ExpressToEmpower or Altorithm)
+    const currentPath = window.location.hash;
+    const isOnSubpage = currentPath.includes('/express-to-empower') || currentPath.includes('/altorithm');
+    
+    if (isOnSubpage) {
+      // Navigate to main page with the section hash
+      window.location.hash = href;
+    } else {
+      // We're on the main page, scroll to section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMenuOpen(false);
   };
 
   const goHome = () => {
-    if (window.location.hash !== '#home') {
-      window.location.hash = '#home';
-    }
-    const element = document.querySelector('#home');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Always navigate to home
+    window.location.hash = '#home';
     setIsMenuOpen(false);
   };
 

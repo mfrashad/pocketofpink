@@ -1,6 +1,23 @@
 import React from 'react';
 import { Heart, Mail, Instagram, Linkedin, MapPin } from 'lucide-react';
 
+const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V9a5 5 0 0 0 5-5" />
+  </svg>
+);
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -64,6 +81,22 @@ const Footer: React.FC = () => {
                   className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors group"
                 >
                   <Linkedin className="w-4 h-4 text-gray-300 group-hover:text-white" />
+                </a>
+                <a
+                  href="https://x.com/mypocketofpink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors group"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-gray-300 group-hover:text-white"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@pocketofpink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors group"
+                >
+                  <TiktokIcon className="w-4 h-4 text-gray-300 group-hover:text-white" />
                 </a>
               </div>
             </div>

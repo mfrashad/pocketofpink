@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, Palette, Shield, BookOpen, Users, Sparkles, Lock, CheckCircle2 } from 'lucide-react';
 import { IMAGES } from '../config/images';
 import Video from '../components/Video';
 import DonationModal from '../components/DonationModal';
 import PocketPalModal from '../components/PocketPalModal';
+import Header from '../components/Header';
 
 const Card: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
   <div {...rest} className={`bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ${className || ''}`}>{children}</div>
@@ -15,6 +16,7 @@ const ExpressToEmpower: React.FC = () => {
 
   return (
     <>
+      <Header onDonateClick={() => setIsDonationModalOpen(true)} />
       <main className="pt-20 md:pt-24">
         {/* Hero */}
         <section className="relative overflow-hidden">

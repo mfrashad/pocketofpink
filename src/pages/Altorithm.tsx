@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import DonationModal from '../components/DonationModal';
+import Header from '../components/Header';
 
 const Altorithm: React.FC = () => {
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
 
   return (
     <>
+      <Header onDonateClick={() => setIsDonationModalOpen(true)} />
       <div className="bg-black text-white font-sans">
         {/* Hero Section */}
         <section className="min-h-screen flex items-center relative bg-[radial-gradient(ellipse_at_center,rgba(255,107,157,0.1)_0%,rgba(0,0,0,0.8)_70%)]">

@@ -37,13 +37,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header onDonateClick={handleDonateClick} />
       {isExpress ? (
         <ExpressToEmpower />
       ) : isAltorithm ? (
         <Altorithm />
       ) : (
         <>
+          <Header onDonateClick={handleDonateClick} />
           <Hero onDonateClick={handleDonateClick} />
           <About />
           <Mission />
