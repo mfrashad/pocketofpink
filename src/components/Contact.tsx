@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Instagram, Linkedin, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, Instagram, Linkedin, MapPin, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -29,8 +29,8 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-800">Email</div>
-                  <a href="mailto:pocketofpink@gmail.com" className="text-pink-600 hover:text-pink-700 transition-colors">
-                    pocketofpink@gmail.com
+                  <a href="mailto:kaveesha@pocketofpink.com" className="text-pink-600 hover:text-pink-700 transition-colors">
+                    kaveesha@pocketofpink.com
                   </a>
                 </div>
               </div>
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-800">Location</div>
-                  <div className="text-gray-600">Kuala Lumpur, Malaysia</div>
+                  <div className="text-gray-600">—</div>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
             <h4 className="text-xl font-bold text-gray-800 mb-6">Follow Us</h4>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com/pocketofpink"
+                href="https://www.instagram.com/pocketofpink/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:shadow-lg transform hover:scale-110 transition-all duration-300"
@@ -58,23 +58,31 @@ const Contact: React.FC = () => {
                 <Instagram className="w-6 h-6 text-white" />
               </a>
               <a
-                href="https://linkedin.com/company/pocket-of-pink"
+                href="https://www.linkedin.com/company/pocket-of-pink-pop"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:shadow-lg transform hover:scale-110 transition-all duration-300"
               >
                 <Linkedin className="w-6 h-6 text-white" />
               </a>
+              <a
+                href="https://x.com/mypocketofpink"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:shadow-lg transform hover:scale-110 transition-all duration-300"
+              >
+                X
+              </a>
             </div>
 
             {/* Quick Info */}
             <div className="mt-12 bg-gradient-to-r from-pink-50 to-pink-100 rounded-2xl p-6">
-              <h4 className="text-lg font-bold text-gray-800 mb-4">Quick Info</h4>
+               <h4 className="text-lg font-bold text-gray-800 mb-4">Quick Info</h4>
               <div className="space-y-2 text-gray-600">
                 <p><strong>Organization Type:</strong> Non-profit, Youth-led</p>
                 <p><strong>Founded:</strong> 2024</p>
-                <p><strong>Focus:</strong> Youth empowerment & education</p>
-                <p><strong>Workshop Price:</strong> Contact for pricing</p>
+                 <p><strong>Focus:</strong> Gender justice, empowerment & education</p>
+                 <p><strong>Workshop Price:</strong> Contact for pricing</p>
               </div>
             </div>
           </div>

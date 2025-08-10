@@ -44,6 +44,7 @@ export const IMAGES = {
     adeliaKhalid: "images/team/adelia.jpg",
     damiaNourrysFaris: "images/team/nourrys.jpg",
     kaveeshaThamilarasu: "images/team/kaveen.jpg",
+    karyn: "images/team/karyn.jpg",
     teamCollaboration: "https://images.squarespace-cdn.com/content/6720a89eceb09d1b4180431a/5f112a05-416d-4689-afe6-cd670c6e20eb/website+work+2.png?content-type=image%2Fpng"
   },
 

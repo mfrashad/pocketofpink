@@ -36,11 +36,6 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
 
   const supportWays = [
     {
-      title: "Purchase Our Module",
-      description: "Buy the Express to Empower activity book for RM25 and help fund free distribution to children in need.",
-      action: "Order Now"
-    },
-    {
       title: "Make a Donation",
       description: "Support our mission with a financial contribution that helps us reach more children and communities.",
       action: "Donate"
@@ -49,6 +44,11 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
       title: "Partner with Us",
       description: "Collaborate for wider distribution, sponsor workshops, or help us reach underserved communities.",
       action: "Partner"
+    },
+    {
+      title: "Volunteer with Us",
+      description: "Join our diverse group of young leaders from various backgrounds, all united in our mission to create positive change.",
+      action: "Apply to Join"
     }
   ];
 
@@ -115,11 +115,11 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
                   <span className="text-gray-700">Leadership and advocacy experience</span>
                 </div>
               </div>
-              <button className="group bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2">
+              <a href="https://forms.gle/XdPUsSk6yzqZAtsw9" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                 <Mail className="w-5 h-5" />
-                <span>Apply to Join</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+                <span className="ml-2">Apply to Join</span>
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
             <div className="text-center">
               <img 
@@ -154,13 +154,33 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
               >
                 <h4 className="text-xl font-bold text-gray-800 mb-4">{way.title}</h4>
                 <p className="text-gray-600 leading-relaxed mb-6">{way.description}</p>
-                <button 
-                  onClick={way.action === 'Donate' ? onDonateClick : undefined}
-                  className="group w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-                >
-                  <span>{way.action}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                {way.action === 'Donate' ? (
+                  <button 
+                    onClick={onDonateClick}
+                    className="group w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+                  >
+                    <span>{way.action}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                ) : way.action === 'Partner' ? (
+                  <a 
+                    href="https://forms.gle/KsfLarS8gD5gRrNy9"
+                    target="_blank" rel="noopener noreferrer"
+                    className="group w-full inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                  >
+                    <span>{way.action}</span>
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                ) : (
+                  <a 
+                    href="https://forms.gle/XdPUsSk6yzqZAtsw9"
+                    target="_blank" rel="noopener noreferrer"
+                    className="group w-full inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                  >
+                    <span>{way.action}</span>
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -181,9 +201,9 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
               every contribution helps us create safer, more empowering spaces for young people.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <a href="#contact" className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                 Contact Us Today
-              </button>
+              </a>
               <button 
                 onClick={onDonateClick}
                 className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-pink-600 transition-all duration-300"

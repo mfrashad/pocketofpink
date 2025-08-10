@@ -43,7 +43,7 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Empowering feminist girls and youth through art, advocacy, and education for a safer, more inclusive world.
+            Empowering feminist boys and girls through art, advocacy and education for a safer, more gender empowered world.
           </p>
 
           {/* CTA Buttons */}
@@ -71,8 +71,8 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-4">
                 <Users className="w-6 h-6 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">400+</div>
-              <div className="text-gray-600">Students Reached</div>
+              <div className="text-3xl font-bold text-gray-800 mb-2">220,400</div>
+              <div className="text-gray-600">Youth Reached</div>
             </div>
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-4">

@@ -5,27 +5,27 @@ import { IMAGES } from '../config/images';
 const Mission: React.FC = () => {
   const missions = [
     {
+      icon: Shield,
+      title: "Gender Justice",
+      description: "We challenge harmful norms and systems to build a world where all genders—especially girls and marginalized youth—can live with dignity, equality, and freedom.",
+      image: IMAGES.mission.challengeNorms
+    },
+    {
       icon: Lightbulb,
-      title: "Creative Empowerment",
-      description: "To empower youth through creative education, advocacy, and art that makes learning engaging and memorable.",
+      title: "Creative Expression",
+      description: "We use art, storytelling, and design to make complex topics like gender, power, and sexuality accessible, engaging, and rooted in joy.",
       image: IMAGES.mission.creativeEmpowerment
     },
     {
       icon: BookOpen,
-      title: "Accessible Education",
-      description: "To provide accessible, age-appropriate, and accurate information about bodies, boundaries, and identity.",
+      title: "Education for Empowerment",
+      description: "Through evidence-based programs like Comprehensive Sexuality Education (CSE), we equip young people with knowledge to protect their rights and navigate the world safely.",
       image: IMAGES.mission.accessibleEducation
     },
     {
-      icon: Shield,
-      title: "Challenge Norms",
-      description: "To challenge patriarchal norms and promote gender equality and child safety in all communities.",
-      image: IMAGES.mission.challengeNorms
-    },
-    {
       icon: Users,
-      title: "Advocacy for CSE",
-      description: "To advocate for Comprehensive Sexuality Education (CSE) as a preventive tool against exploitation and abuse.",
+      title: "Safe, Inclusive Spaces",
+      description: "We create physical and digital pockets where youth feel safe to express themselves, be heard, and grow—regardless of identity or background.",
       image: IMAGES.mission.advocacyCSE
     }
   ];
@@ -40,8 +40,7 @@ const Mission: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We are committed to creating lasting change through four core pillars 
-            that guide everything we do.
+            We are committed to creating lasting change through four core pillars that guide everything we do.
           </p>
         </div>
 
@@ -93,10 +92,7 @@ const Mission: React.FC = () => {
                   </span>
                 </h3>
                 <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                  We envision a world where every child and young person has access to comprehensive, 
-                  inclusive education about their bodies, rights, and identity. A world where young 
-                  people are empowered to make informed decisions, protect themselves and others, 
-                  and contribute to building safer, more equitable communities.
+                  We envision a world where every child and young person—regardless of gender—feels safe, empowered, and free to grow into who they are. A world where education is inclusive, creativity is a tool for justice, and every voice has the power to challenge harmful norms. Through pockets of safety and threads of empowerment, we imagine a future where feminist girls and boys lead the way—transforming their communities with courage, care, and creativity.
                 </p>
                 <div className="flex justify-start">
                   <div className="w-20 h-1 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full"></div>

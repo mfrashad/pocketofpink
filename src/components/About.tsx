@@ -9,12 +9,11 @@ const About: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">
-              About Pocket of Pink
+              About Pocket of Pink (POP)
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A youth-led, intersectional feminist non-profit organization founded in 2024, 
-            combining art, advocacy, and education to empower children and youth.
+            A feminist initiative building safe, empowering spaces for young people to explore gender, identity, and justice. Rooted in care and creativity, we use art, education, and community dialogue to challenge harmful norms and spark change. From classrooms to digital platforms, we empower girls, boys, and all youth to speak up, take up space, and reimagine a world where dignity, safety, and gender justice are a right—not a privilege.
           </p>
         </div>
 
@@ -23,19 +22,16 @@ const About: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-800 mb-6">Our Story</h3>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Founded by <strong className="text-pink-600">Ain Husniza Saiful Nizam</strong>, 
-                Pocket of Pink (POP) emerged from a vision to create safe spaces where young people, 
-                especially girls, can learn about their rights, bodily autonomy, and personal safety.
+                Pocket of Pink began with a girl who refused to stay silent. In 2021, 17-year-old Ain Husniza posted a video calling out rape culture in schools, sparking a national reckoning. Her words ignited the hashtag <strong className="text-pink-600">#MakeSchoolASaferPlace</strong>, which went viral with over 22.4 million views—and transformed outrage into action.
               </p>
               <p>
-                We believe in breaking taboos around sexuality education and fostering inclusive 
-                environments for learning and growth. Our approach combines creative storytelling, 
-                visual art, and evidence-based education to make complex topics accessible and engaging.
+                From that spark, Ain Husniza founded Pocket of Pink: a platform not just to fight harm, but to build a world where every young person feels safe and confident in their identity and gender.
               </p>
               <p>
-                Through our innovative programs, we challenge patriarchal norms, promote gender equality, 
-                and advocate for Comprehensive Sexuality Education (CSE) as a preventive tool against 
-                exploitation and abuse.
+                We work at the intersection of education, art, and advocacy—running school workshops, creating resources, and leading digital campaigns that have reached over 220,000 people.
+              </p>
+              <p>
+                Our mission is rooted in gender justice: dismantling the norms and systems that harm all genders, and growing a generation ready to lead with empathy, equality, and courage. And this story is still being written — by every young person, parent, and ally who joins us.
               </p>
             </div>
           </div>
@@ -53,28 +49,28 @@ const About: React.FC = () => {
                     <Award className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="font-semibold text-gray-800 mb-2">Recognition</h4>
-                  <p className="text-sm text-gray-600">KLSCAH Civil Society Award & WikiImpact 100 Changemakers</p>
+                  <p className="text-sm text-gray-600">KLSCAH Civil Society Award & WikiImpact Top 100 Changemakers</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Users2 className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="font-semibold text-gray-800 mb-2">Team</h4>
-                  <p className="text-sm text-gray-600">Nine young leaders from diverse backgrounds</p>
+                  <p className="text-sm text-gray-600">Youth leaders from diverse gender, cultural, and lived experiences</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <BookHeart className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="font-semibold text-gray-800 mb-2">Approach</h4>
-                  <p className="text-sm text-gray-600">Art, advocacy, and education combined</p>
+                  <p className="text-sm text-gray-600">Creative strategies through art, storytelling, and education</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Target className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="font-semibold text-gray-800 mb-2">Focus</h4>
-                  <p className="text-sm text-gray-600">Children and youth empowerment</p>
+                  <p className="text-sm text-gray-600">Advancing gender justice and empowerment in communities</p>
                 </div>
               </div>
             </div>
@@ -89,8 +85,7 @@ const About: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-4">Inclusive Education</h3>
             <p className="text-gray-600">
-              Providing accessible, age-appropriate, and accurate information about bodies, 
-              boundaries, and identity for all young people.
+              We make knowledge about gender, identity, bodies, and boundaries accessible to all young people—through creative, age-appropriate, and culturally sensitive approaches.
             </p>
           </div>
           <div className="text-center group">
@@ -99,8 +94,7 @@ const About: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-4">Youth Leadership</h3>
             <p className="text-gray-600">
-              Empowering young people to lead change in their communities and advocate 
-              for their rights and the rights of others.
+              Empowering young people to lead change in their communities and advocate for their rights and the rights of others.
             </p>
           </div>
           <div className="text-center group">
@@ -109,8 +103,7 @@ const About: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-4">Social Change</h3>
             <p className="text-gray-600">
-              Challenging harmful norms and advocating for systemic changes that promote 
-              gender equality and child safety.
+              Challenging harmful norms and advocating for systemic changes that promote gender equality and child safety.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { IMAGES } from '../config/images';
 
 interface HeaderProps {
@@ -13,9 +13,12 @@ const Header: React.FC<HeaderProps> = ({ onDonateClick }) => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Mission', href: '#mission' },
-    { name: 'Video', href: '#video' },
     { name: 'Team', href: '#team' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Initiatives', href: '#initiatives' },
+    { name: 'Express to Empower', href: '#/express-to-empower' },
+    { name: 'Alt//orithm', href: '#/altorithm' },
+    { name: 'Media', href: '#media' },
+    { name: 'Supporters', href: '#supporters' },
     { name: 'Get Involved', href: '#get-involved' },
     { name: 'Contact', href: '#contact' },
   ];
