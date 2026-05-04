@@ -25,7 +25,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Express to Empower - Full-bleed Banner */}
-      <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-72 md:h-96 mb-8">
+      <div className="relative w-full h-72 md:h-96 mb-8">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${IMAGES.projects.expressToEmpower}')` }}
@@ -45,7 +45,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Alt//orithm - Full-bleed Black Banner with Logo on Right */}
-      <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-72 md:h-96">
+      <div className="relative w-full h-72 md:h-96">
         <div className="absolute inset-0 bg-black" />
         <div className="relative h-full">
           <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
