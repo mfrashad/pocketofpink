@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { IMAGES } from '../config/images';
+import { trackEvent } from '../utils/analytics';
 
 interface HeaderProps {
   onDonateClick: () => void;
@@ -73,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ onDonateClick }) => {
               </button>
             ))}
             <button
-              onClick={onDonateClick}
+              onClick={() => { trackEvent('donate_button_click', { location: 'header_nav' }); onDonateClick(); }}
               className="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-200"
             >
               Donate Now
@@ -105,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ onDonateClick }) => {
                 </button>
               ))}
               <button
-                onClick={onDonateClick}
+                onClick={() => { trackEvent('donate_button_click', { location: 'mobile_menu' }); onDonateClick(); }}
                 className="w-full mt-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-200"
               >
                 Donate Now

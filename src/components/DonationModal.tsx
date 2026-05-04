@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Heart, Shield } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 
 interface DonationModalProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const handleDonateClick = () => {
+    trackEvent('paypal_donate_click');
     const paypalURL = "https://www.paypal.com/ncp/payment/3YA8C2UK7Y52A";
     window.open(paypalURL, '_blank');
     onClose();

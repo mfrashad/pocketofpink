@@ -83,7 +83,7 @@ const Mission: React.FC = () => {
               className="w-full h-full object-cover opacity-10"
             />
           </div>
-          <div className="relative p-12">
+          <div className="relative p-6 sm:p-8 md:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h3 className="text-3xl font-bold mb-6">

@@ -1,8 +1,12 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { IMAGES } from '../config/images';
+import { trackEvent } from '../utils/analytics';
 
 const Projects: React.FC = () => {
+  const trackExpress = () => trackEvent('initiative_click', { initiative: 'express_to_empower' });
+  const trackAltorithm = () => trackEvent('initiative_click', { initiative: 'altorithm' });
+
   return (
     <section id="initiatives" className="py-20 bg-gradient-to-br from-pink-50 via-pink-100 to-pink-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,7 +36,7 @@ const Projects: React.FC = () => {
             <div className="max-w-3xl text-white">
               <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Express to Empower</h3>
               <p className="text-lg md:text-xl opacity-95 mb-6">Our school-based workshops and Pocket Pal activity book teach young people about bodily autonomy, consent, and identity through creative, stigma-free learning.</p>
-              <a href="#/express-to-empower" className="inline-flex items-center bg-white text-pink-600 px-6 py-3 rounded-full font-semibold hover:shadow-lg">
+              <a href="#/express-to-empower" onClick={trackExpress} className="inline-flex items-center bg-white text-pink-600 px-6 py-3 rounded-full font-semibold hover:shadow-lg">
                 Discover How It Works <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </div>
@@ -48,7 +52,7 @@ const Projects: React.FC = () => {
             <div className="max-w-3xl text-white py-8">
               <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Alt//orithm</h3>
               <p className="text-lg md:text-xl opacity-95 mb-6">Rewriting the code for a safer digital future. Working with Malaysian youth to expose harmful patterns and build safer, feminist digital spaces.</p>
-              <a href="#/altorithm" className="inline-flex items-center bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:shadow-lg">
+              <a href="#/altorithm" onClick={trackAltorithm} className="inline-flex items-center bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:shadow-lg">
                 See How We’re Changing the Code <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </div>

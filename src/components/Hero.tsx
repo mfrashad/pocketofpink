@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Users, BookOpen, Heart } from 'lucide-react';
 import { IMAGES } from '../config/images';
 import MovingMediaBanner from './MovingMediaBanner';
+import { trackEvent } from '../utils/analytics';
 
 interface HeroProps {
   onDonateClick: () => void;
@@ -32,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           {/* Main heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400 bg-clip-text text-transparent">
               Creating pockets of safety
             </span>
@@ -43,14 +44,14 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
             Empowering feminist boys and girls through art, advocacy and education for a safer, more gender empowered world.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button
-              onClick={onDonateClick}
+              onClick={() => { trackEvent('donate_button_click', { location: 'hero' }); onDonateClick(); }}
               className="group bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2"
             >
               <Heart className="w-5 h-5" fill="currentColor" />
@@ -58,7 +59,7 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={scrollToAbout}
+              onClick={() => { trackEvent('learn_more_click'); scrollToAbout(); }}
               className="group border-2 border-pink-500 text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-pink-50 transition-all duration-300 flex items-center space-x-2"
             >
               <span>Learn More</span>
@@ -67,27 +68,27 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-4">
-                <Users className="w-6 h-6 text-white" />
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-2 sm:mb-4">
+                <Users className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">220,400</div>
-              <div className="text-gray-600">Youth Reached</div>
+              <div className="text-lg sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">220,400</div>
+              <div className="text-gray-600 text-xs sm:text-base">Youth Reached</div>
             </div>
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-4">
-                <BookOpen className="w-6 h-6 text-white" />
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-2 sm:mb-4">
+                <BookOpen className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">2024</div>
-              <div className="text-gray-600">Founded</div>
+              <div className="text-lg sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">2024</div>
+              <div className="text-gray-600 text-xs sm:text-base">Founded</div>
             </div>
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-4">
-                <Heart className="w-6 h-6 text-white" fill="currentColor" />
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-2 sm:mb-4">
+                <Heart className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="currentColor" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">Youth-Led</div>
-              <div className="text-gray-600">Organization</div>
+              <div className="text-lg sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Youth-Led</div>
+              <div className="text-gray-600 text-xs sm:text-base">Organization</div>
             </div>
           </div>
 

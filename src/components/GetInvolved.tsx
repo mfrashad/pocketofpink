@@ -1,6 +1,7 @@
 import React from 'react';
 import { Users, PenTool, Video, Megaphone, Heart, Mail, ArrowRight } from 'lucide-react';
 import { IMAGES } from '../config/images';
+import { trackEvent } from '../utils/analytics';
 
 interface GetInvolvedProps {
   onDonateClick: () => void;
@@ -68,7 +69,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
         </div>
 
         {/* Join the Team */}
-        <div className="bg-white rounded-3xl p-12 shadow-xl mb-20">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl mb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-bold text-gray-800 mb-6">Join the Team</h3>
@@ -91,7 +92,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
                   <span className="text-gray-700">Leadership and advocacy experience</span>
                 </div>
               </div>
-              <a href="https://forms.gle/XdPUsSk6yzqZAtsw9" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <a href="https://forms.gle/XdPUsSk6yzqZAtsw9" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('apply_to_join_click', { location: 'join_team' })} className="group inline-flex items-center bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                 <Mail className="w-5 h-5" />
                 <span className="ml-2">Apply to Join</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -131,26 +132,28 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
                 <h4 className="text-xl font-bold text-gray-800 mb-4">{way.title}</h4>
                 <p className="text-gray-600 leading-relaxed mb-6">{way.description}</p>
                 {way.action === 'Donate' ? (
-                  <button 
-                    onClick={onDonateClick}
+                  <button
+                    onClick={() => { trackEvent('donate_button_click', { location: 'get_involved' }); onDonateClick(); }}
                     className="group w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
                   >
                     <span>{way.action}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 ) : way.action === 'Partner' ? (
-                  <a 
+                  <a
                     href="https://forms.gle/KsfLarS8gD5gRrNy9"
                     target="_blank" rel="noopener noreferrer"
+                    onClick={() => trackEvent('partner_click')}
                     className="group w-full inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300"
                   >
                     <span>{way.action}</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>
                 ) : (
-                  <a 
+                  <a
                     href="https://forms.gle/XdPUsSk6yzqZAtsw9"
                     target="_blank" rel="noopener noreferrer"
+                    onClick={() => trackEvent('apply_to_join_click', { location: 'support_ways' })}
                     className="group w-full inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300"
                   >
                     <span>{way.action}</span>
@@ -163,7 +166,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-20 text-center bg-gradient-to-r from-pink-500 to-pink-600 rounded-3xl p-12 text-white relative overflow-hidden">
+        <div className="mt-20 text-center bg-gradient-to-r from-pink-500 to-pink-600 rounded-3xl p-6 sm:p-8 md:p-12 text-white relative overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center opacity-20"
             style={{
@@ -177,11 +180,11 @@ const GetInvolved: React.FC<GetInvolvedProps> = ({ onDonateClick }) => {
               every contribution helps us create safer, more empowering spaces for young people.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact" className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <a href="#contact" onClick={() => trackEvent('contact_us_click', { location: 'get_involved_cta' })} className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                 Contact Us Today
               </a>
-              <button 
-                onClick={onDonateClick}
+              <button
+                onClick={() => { trackEvent('donate_button_click', { location: 'get_involved_cta' }); onDonateClick(); }}
                 className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-pink-600 transition-all duration-300"
               >
                 Make a Donation

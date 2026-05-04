@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Instagram, Linkedin } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -43,8 +44,9 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
               <div className="flex items-center justify-center space-x-3 p-4 bg-white rounded-xl shadow-sm">
                 <Mail className="w-5 h-5 text-pink-600" />
-                <a 
-                  href="mailto:kaveesha@pocketofpink.com" 
+                <a
+                  href="mailto:kaveesha@pocketofpink.com"
+                  onClick={() => trackEvent('contact_email_click')}
                   className="text-pink-600 hover:text-pink-700 font-medium"
                 >
                   kaveesha@pocketofpink.com
@@ -60,6 +62,7 @@ const Contact: React.FC = () => {
                   href="https://www.instagram.com/pocketofpink/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('social_link_click', { platform: 'instagram' })}
                   className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors"
                 >
                   <Instagram className="w-6 h-6 text-white" />
@@ -68,6 +71,7 @@ const Contact: React.FC = () => {
                   href="https://www.linkedin.com/company/pocket-of-pink-pop"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('social_link_click', { platform: 'linkedin' })}
                   className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
                 >
                   <Linkedin className="w-6 h-6 text-white" />
@@ -76,6 +80,7 @@ const Contact: React.FC = () => {
                   href="https://x.com/mypocketofpink"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('social_link_click', { platform: 'twitter' })}
                   className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-900 transition-colors"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-white"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -84,6 +89,7 @@ const Contact: React.FC = () => {
                   href="https://www.tiktok.com/@pocketofpink"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('social_link_click', { platform: 'tiktok' })}
                   className="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors"
                 >
                   <TiktokIcon className="w-6 h-6 text-white" />

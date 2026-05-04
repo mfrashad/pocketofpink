@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, Calendar, Tag } from 'lucide-react';
 import { MEDIA_MENTIONS, MEDIA_SECTION } from '../config/media';
+import { trackEvent } from '../utils/analytics';
 
 const MediaMentions: React.FC = () => {
   // Sort media mentions by date (newest first)
@@ -120,6 +121,7 @@ const MediaMentions: React.FC = () => {
                   href={mention.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('media_article_click', { publication: mention.publication, title: mention.title })}
                   className="inline-flex items-center text-pink-600 hover:text-pink-700 font-semibold text-xs transition-colors duration-300 group-hover:translate-x-1 transform"
                 >
                   Read Article
@@ -141,6 +143,7 @@ const MediaMentions: React.FC = () => {
             </p>
             <a
               href="https://forms.gle/KsfLarS8gD5gRrNy9" target="_blank" rel="noopener noreferrer"
+              onClick={() => trackEvent('media_inquiry_click')}
               className="inline-flex items-center bg-gradient-to-r from-pink-600 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:from-pink-700 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Contact Us for Media Inquiries

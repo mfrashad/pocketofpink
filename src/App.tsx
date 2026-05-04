@@ -36,7 +36,7 @@ function App() {
   const isAltorithm = route === '/altorithm';
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {isExpress ? (
         <ExpressToEmpower />
       ) : isAltorithm ? (
