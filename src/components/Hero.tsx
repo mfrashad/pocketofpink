@@ -33,18 +33,17 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           {/* Main heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 px-2">
+            <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400 bg-clip-text text-transparent block">
               Creating pockets of safety
             </span>
-            <br />
-            <span className="text-gray-800">
+            <span className="text-gray-800 block">
               and threads of empowerment
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed px-2">
             Empowering feminist boys and girls through art, advocacy and education for a safer, more gender empowered world.
           </p>
 
@@ -68,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-3 gap-2 sm:gap-8 max-w-3xl mx-auto px-2">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-2 sm:mb-4">
                 <Users className="w-4 h-4 sm:w-6 sm:h-6 text-white" />

@@ -25,7 +25,7 @@ const MovingMediaBanner: React.FC = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
             Featured In
           </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto px-4">
             Our work has been recognized and covered by leading media organizations
           </p>
         </div>
