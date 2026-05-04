@@ -33,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           {/* Main heading */}
-          <h1 className="text-xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 px-2 break-words">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 px-2 break-words">
             <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400 bg-clip-text text-transparent block">
               Creating pockets of safety
             </span>
