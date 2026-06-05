@@ -197,15 +197,15 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
           </div>
 
           {/* Right: art (position fine-tuned via the layout editor) */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-start">
+          <div className="order-1 lg:order-2 w-full flex justify-center lg:justify-start">
             <Editable
               id="hero-illustration"
-              className="w-72 sm:w-[28rem] md:w-[34rem] lg:w-[43rem] xl:w-[48rem] max-w-full"
+              className="block mx-auto lg:mx-0 w-64 sm:w-80 md:w-[28rem] lg:w-[43rem] xl:w-[48rem] max-w-full"
             >
               <img
                 src={IMAGES.illustration.heroGroup}
                 alt="Three young people sitting together with art supplies"
-                className="w-full h-auto animate-ambient origin-center will-change-transform drop-shadow-xl"
+                className="block mx-auto w-full h-auto animate-ambient origin-center will-change-transform drop-shadow-xl"
               />
             </Editable>
           </div>
