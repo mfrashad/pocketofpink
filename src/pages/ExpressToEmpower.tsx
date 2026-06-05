@@ -353,9 +353,6 @@ const ExpressToEmpower: React.FC = () => {
                 allow="autoplay; fullscreen; clipboard-read; clipboard-write"
               />
             </div>
-            <p className="font-sans text-xs text-center text-pop-ink/70 mt-4">
-              Works best in a desktop browser. The "Ask Pal" chat needs a Gemini API key configured in deployment to respond.
-            </p>
           </div>
         </section>
 
