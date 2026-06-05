@@ -329,6 +329,36 @@ const ExpressToEmpower: React.FC = () => {
           </div>
         </section>
 
+        {/* Play Pocket Pal */}
+        <section id="play-pocket-pal" className="bg-pop-pink text-pop-ink py-20 lg:py-28">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+            <div className="text-center mb-10 lg:mb-12">
+              <p className="font-sans text-xs sm:text-sm uppercase tracking-[0.25em] text-pop-cream mb-4">
+                Try it in your browser
+              </p>
+              <h3 className="pop-brush text-5xl sm:text-6xl lg:text-7xl uppercase leading-[0.95] mb-5">
+                Play <span className="text-pop-cream">Pocket Pal.</span>
+              </h3>
+              <p className="font-sans text-base lg:text-lg leading-relaxed max-w-3xl mx-auto text-justify text-pop-ink/90">
+                The Pocket Pal activity book, reimagined as an interactive game.
+                Walk through chapters on identity, bodies, consent and safety, draw and reflect in your own journal, and chat with Pocket Pal along the way.
+              </p>
+            </div>
+
+            <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl ring-4 ring-pop-cream/40 bg-pop-cream">
+              <iframe
+                src="/game/index.html"
+                title="Pocket Pal — The Game"
+                className="block w-full h-[80vh] min-h-[640px] max-h-[1024px] border-0"
+                allow="autoplay; fullscreen; clipboard-read; clipboard-write"
+              />
+            </div>
+            <p className="font-sans text-xs text-center text-pop-ink/70 mt-4">
+              Works best in a desktop browser. The "Ask Pal" chat needs a Gemini API key configured in deployment to respond.
+            </p>
+          </div>
+        </section>
+
         {/* Case in Point */}
         <section className="bg-pop-pink text-pop-ink py-20 lg:py-28">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
