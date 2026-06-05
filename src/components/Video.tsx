@@ -14,17 +14,14 @@ const Video: React.FC = () => {
   };
 
   return (
-    <section id="video" className="py-20 bg-gradient-to-br from-pink-50 via-pink-100 to-pink-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">
-              Watch Our Story
-            </span>
+    <section id="video" className="py-20 lg:py-28 bg-pop-cream text-pop-ink">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="pop-brush text-5xl sm:text-6xl lg:text-7xl uppercase leading-[0.95] mb-6 text-pop-ink">
+            Watch our <span className="text-pop-pink">story.</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how we're making a difference in young people's lives through education, 
-            advocacy, and creative empowerment.
+          <p className="font-sans text-lg lg:text-xl text-pop-ink/80 max-w-3xl mx-auto text-justify">
+            Discover how we're making a difference in young people's lives through education, advocacy, and creative empowerment.
           </p>
         </div>
 
@@ -40,15 +37,15 @@ const Video: React.FC = () => {
             />
             <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 bg-white bg-opacity-90 rounded-full flex items-center justify-center group-hover:bg-opacity-100 group-hover:scale-110 transition-all duration-300 shadow-lg">
-                <Play className="w-8 h-8 text-pink-600 ml-1" fill="currentColor" />
+              <div className="w-20 h-20 bg-pop-cream bg-opacity-90 rounded-full flex items-center justify-center group-hover:bg-opacity-100 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                <Play className="w-8 h-8 text-pop-pink ml-1" fill="currentColor" />
               </div>
             </div>
           </div>
-          
+
           <div className="text-center mt-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">{VIDEOS.featured.title}</h3>
-            <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            <h3 className="pop-brush text-2xl sm:text-3xl uppercase text-pop-ink mb-4 leading-tight">{VIDEOS.featured.title}</h3>
+            <p className="font-sans text-pop-ink/80 text-base lg:text-lg leading-relaxed max-w-2xl mx-auto">
               {VIDEOS.featured.description}
             </p>
           </div>

@@ -12,6 +12,11 @@ body {
   max-width: 100vw;
   width: 100%;
   position: relative;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1A0E12;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -24,6 +29,33 @@ body {
 @layer utilities {
   .pause-animation:hover {
     animation-play-state: paused;
+  }
+  /* OCP-style inline link colour against pink/cream blocks */
+  .pop-link {
+    color: #3E1A2C;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+  .pop-link:hover {
+    color: #FF3E8F;
+  }
+  /* Display headline — chunky geometric to match the POP wordmark */
+  .pop-brush {
+    font-family: 'Bowlby One', Impact, sans-serif;
+    letter-spacing: -0.005em;
+    line-height: 0.95;
+    font-weight: 400;
+  }
+  /* Italic emphasis inside headlines (like the "pink"/"power" script in the logo) */
+  .pop-script {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
   }
 }
 

@@ -1,82 +1,69 @@
 import React from 'react';
-import { Award } from 'lucide-react';
 import { IMAGES } from '../config/images';
 
 const Team: React.FC = () => {
   const teamMembers = [
     {
-      name: "Ain Husniza",
-      role: "Founder & Executive Director",
-      description: "Founder and Executive Director of Pocket of Pink, leading the organisation’s vision and advocacy for gender justice.",
-      highlight: true,
-      image: IMAGES.team.ainHusniza
+      name: 'Ain Husniza',
+      role: 'Founder & Executive Director',
+      description:
+        'Founder and Executive Director of Pocket of Pink, leading the organisation\'s vision and advocacy for gender justice.',
+      image: IMAGES.team.ainHusniza,
     },
     {
-      name: "Karyn Ngiam",
-      role: "Strategic Director",
-      description: "Strategic Director, shaping Pocket of Pink’s direction, partnerships, and long-term impact.",
-      image: IMAGES.team.karyn || IMAGES.team.kaveeshaThamilarasu
+      name: 'Karyn Ngiam',
+      role: 'Strategic Director',
+      description:
+        'Strategic Director, shaping Pocket of Pink\'s direction, partnerships, and long-term impact.',
+      image: IMAGES.team.karyn || IMAGES.team.kaveeshaThamilarasu,
     },
     {
-      name: "Kaveesha Thamilarasu",
-      role: "Programmes Director",
-      description: "Programmes Director, leading the development and delivery of inclusive, youth-centred educational initiatives.",
-      image: IMAGES.team.kaveeshaThamilarasu
-    }
+      name: 'Kaveesha Thamilarasu',
+      role: 'Programmes Director',
+      description:
+        'Programmes Director, leading the development and delivery of inclusive, youth-centred educational initiatives.',
+      image: IMAGES.team.kaveeshaThamilarasu,
+    },
   ];
 
   return (
-    <section id="team" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">
-              Our Team
-            </span>
+    <section id="team" className="bg-pop-cream py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="mb-16 max-w-3xl mx-auto text-center">
+          <h2 className="pop-brush text-5xl sm:text-6xl lg:text-7xl uppercase leading-[0.95] mb-6">
+            Built by youth.
+            <br />
+            <span className="text-pop-pink">Led by youth.</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Meet the young leaders at the heart of Pocket of Pink—driving change and reimagining gender justice.
+          <p className="font-sans text-lg lg:text-xl leading-relaxed text-justify">
+            Pocket of Pink is run by a team of young people who are doing the
+            work because it is theirs to do, not because they are waiting to
+            inherit it later.
           </p>
         </div>
 
-        {/* Requested: remove stats (9 core members, awards, KL based) */}
-
-        {/* Team Members */}
-        <div className="space-y-8">
-          {teamMembers.map((member, index) => (
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+          {teamMembers.map((member) => (
             <div
-              key={index}
-              className={`${
-                member.highlight 
-                  ? 'bg-gradient-to-r from-pink-50 to-pink-100 border-2 border-pink-200' 
-                  : 'bg-white border border-gray-200'
-              } rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group`}
+              key={member.name}
+              className="p-6 lg:p-8 bg-pop-creamSoft rounded-2xl flex flex-col"
             >
-              <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-                <div className="relative">
-                  <img 
-                    src={member.image}
-                    alt={member.name}
-                    className="w-20 h-20 rounded-2xl object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  {member.highlight && (
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center">
-                      <Award className="w-3 h-3 text-white" />
-                    </div>
-                  )}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">{member.name}</h3>
-                  <div className={`inline-block px-4 py-1 rounded-full text-sm font-medium mb-3 ${
-                    member.highlight 
-                      ? 'bg-gradient-to-r from-pink-500 to-pink-600 text-white' 
-                      : 'bg-pink-100 text-pink-700'
-                  }`}>
-                    {member.role}
-                  </div>
-                  <p className="text-gray-600 leading-relaxed">{member.description}</p>
-                </div>
+              <div className="w-full aspect-square overflow-hidden mb-6 rounded-xl">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
+              <p className="font-sans text-xs uppercase tracking-[0.2em] text-pop-pinkDeep mb-2">
+                {member.role}
+              </p>
+              <h3 className="pop-brush text-3xl uppercase text-pop-ink mb-4">
+                {member.name}
+              </h3>
+              <p className="font-sans text-base leading-relaxed text-pop-ink/80 text-justify">
+                {member.description}
+              </p>
             </div>
           ))}
         </div>

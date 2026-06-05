@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, Users, BookOpen, Heart } from 'lucide-react';
 import { IMAGES } from '../config/images';
 import MovingMediaBanner from './MovingMediaBanner';
+import Editable from './Editable';
+import EditableText from './EditableText';
 import { trackEvent } from '../utils/analytics';
+import { useEditMode, useLayoutItem } from '../utils/editableLayout';
 
 interface HeroProps {
   onDonateClick: () => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
+  const editMode = useEditMode();
+  // Draggable hero photo background: y = vertical offset in px (negative = up)
+  const [bgItem, setBgItem] = useLayoutItem('hero-bg-photo');
+  const [bgDrag, setBgDrag] = useState<{ startY: number; baseY: number } | null>(null);
+
+  useEffect(() => {
+    if (!bgDrag) return;
+    const onMove = (e: MouseEvent) => {
+      setBgItem({ ...bgItem, y: bgDrag.baseY + (e.clientY - bgDrag.startY) });
+    };
+    const onUp = () => setBgDrag(null);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+  }, [bgDrag, bgItem, setBgItem]);
+
   const scrollToAbout = () => {
     const element = document.querySelector('#about');
     if (element) {
@@ -17,91 +39,201 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with gradient and hero image */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-pink-100 to-pink-200"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: `url('${IMAGES.hero.background}')`
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cpattern id=%22grid%22 width=%2220%22 height=%2220%22 patternUnits=%22userSpaceOnUse%22%3E%3Cpath d=%22M 20 0 L 0 0 0 20%22 fill=%22none%22 stroke=%22%23ec4899%22 stroke-width=%220.5%22 opacity=%220.1%22/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23grid)%22/%3E%3C/svg%3E')] opacity-20"></div>
+    <section
+      id="home"
+      className="relative text-pop-ink overflow-hidden pt-12 sm:pt-16 lg:pt-20 pb-10 lg:pb-14"
+    >
+      {/* photo background with pink wash for headline contrast */}
+      <div className="absolute inset-0 bg-pop-pink" aria-hidden />
+      <div
+        aria-hidden={!editMode}
+        onMouseDown={
+          editMode
+            ? (e) => {
+                if ((e.target as HTMLElement).closest('[data-handle]')) return;
+                e.preventDefault();
+                setBgDrag({ startY: e.clientY, baseY: bgItem.y });
+              }
+            : undefined
+        }
+        className={`absolute inset-0 bg-cover bg-no-repeat opacity-55 mix-blend-multiply ${
+          editMode ? 'cursor-ns-resize outline outline-2 outline-pop-pink/40' : ''
+        }`}
+        style={{
+          backgroundImage: `url('${IMAGES.hero.background}')`,
+          backgroundPosition: `center calc(0% + ${bgItem.y}px)`,
+        }}
+      >
+        {editMode && (
+          <div
+            data-handle
+            className="pointer-events-none absolute top-2 left-2 bg-pop-pink text-pop-cream font-sans text-xs uppercase tracking-wider px-2 py-1 rounded-sm select-none"
+          >
+            hero photo · drag up/down · y={Math.round(bgItem.y)}
+          </div>
+        )}
+      </div>
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-pop-pink/45 pointer-events-none"
+      />
+
+      {/* Floating POP word-stickers — editable via ?edit=1 */}
+      <div className="absolute inset-0 select-none z-0 overflow-hidden">
+        <Editable
+          id="hero-sticker-pop-patriarchy"
+          className="hidden md:block absolute -top-4 -right-10 lg:-right-16 w-52 lg:w-[22rem] xl:w-96"
+        >
+          <img
+            src={IMAGES.illustration.stickers.popPatriarchy}
+            alt=""
+            aria-hidden
+            className="w-full h-auto rotate-[12deg] animate-ambient drop-shadow-xl pointer-events-none"
+            style={{ animationDelay: '0s' }}
+          />
+        </Editable>
+
+        <Editable
+          id="hero-sticker-feminism-fits-top"
+          className="hidden lg:block absolute top-2 -left-10 w-48 lg:w-[17rem]"
+        >
+          <img
+            src={IMAGES.illustration.stickers.feminismFits}
+            alt=""
+            aria-hidden
+            className="w-full h-auto rotate-[-10deg] animate-ambient drop-shadow-lg pointer-events-none"
+            style={{ animationDelay: '1.4s' }}
+          />
+        </Editable>
+
+        <Editable
+          id="hero-sticker-face-bun"
+          className="hidden md:block absolute top-[48%] -left-2 w-14 lg:w-[5rem]"
+        >
+          <img
+            src={IMAGES.illustration.stickers.faceBun}
+            alt=""
+            aria-hidden
+            className="w-full h-auto rotate-[-22deg] animate-ambient drop-shadow pointer-events-none"
+            style={{ animationDelay: '2.3s' }}
+          />
+        </Editable>
+
+        <Editable
+          id="hero-sticker-face-bob"
+          className="hidden md:block absolute top-[55%] -right-2 w-16 lg:w-24"
+        >
+          <img
+            src={IMAGES.illustration.stickers.faceBob}
+            alt=""
+            aria-hidden
+            className="w-full h-auto rotate-[18deg] animate-ambient drop-shadow pointer-events-none"
+            style={{ animationDelay: '0.7s' }}
+          />
+        </Editable>
+
+        <Editable
+          id="hero-sticker-justice-equality"
+          className="hidden lg:block absolute bottom-2 -left-12 w-[15.5rem] lg:w-[22rem] xl:w-96"
+        >
+          <img
+            src={IMAGES.illustration.stickers.justiceEquality}
+            alt=""
+            aria-hidden
+            className="w-full h-auto rotate-[-6deg] animate-ambient drop-shadow-xl pointer-events-none"
+            style={{ animationDelay: '0.4s' }}
+          />
+        </Editable>
+
+        <Editable
+          id="hero-sticker-feminism-fits-bottom"
+          className="hidden xl:block absolute bottom-4 -right-6 w-28"
+        >
+          <img
+            src={IMAGES.illustration.stickers.feminismFits}
+            alt=""
+            aria-hidden
+            className="w-full h-auto rotate-[8deg] animate-ambient drop-shadow pointer-events-none"
+            style={{ animationDelay: '1.9s' }}
+          />
+        </Editable>
       </div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-28 pb-16 sm:py-20">
-        <div className="text-center">
-          {/* Main heading */}
-          <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-5 break-words leading-tight">
-            <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400 bg-clip-text text-transparent block">
-              Creating pockets of safety
-            </span>
-            <span className="text-gray-800 block">
-              and threads of empowerment
-            </span>
-          </h1>
 
-          {/* Subtitle */}
-          <p className="text-base sm:text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Empowering feminist boys and girls through art, advocacy and education for a safer, more gender empowered world.
-          </p>
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left: headline + buttons */}
+          <div className="order-2 lg:order-1 text-center lg:text-left">
+            <Editable id="hero-headline-block" className="block" textControls>
+              <h1 className="pop-brush text-pop-ink text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl uppercase leading-[0.95]">
+                <EditableText
+                  id="hero-headline-main"
+                  defaultText="Pocket of Pink is building the generation that owns "
+                />
+                <EditableText
+                  id="hero-headline-accent"
+                  defaultText="gender justice."
+                  className="text-pop-cream"
+                />
+              </h1>
+            </Editable>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-10">
-            <button
-              onClick={() => { trackEvent('donate_button_click', { location: 'hero' }); onDonateClick(); }}
-              className="group w-full sm:w-auto bg-gradient-to-r from-pink-500 to-pink-600 text-white px-7 py-3.5 rounded-full font-semibold text-base sm:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-            >
-              <Heart className="w-5 h-5" fill="currentColor" />
-              <span>Support Our Mission</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={() => { trackEvent('learn_more_click'); scrollToAbout(); }}
-              className="group w-full sm:w-auto border-2 border-pink-500 text-pink-600 px-7 py-3.5 rounded-full font-semibold text-base sm:text-lg hover:bg-pink-50 transition-all duration-300 flex items-center justify-center space-x-2"
-            >
-              <span>Learn More</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto">
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-2 sm:mb-3">
-                <Users className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <div className="text-base sm:text-3xl font-bold text-gray-800 mb-0.5 sm:mb-2">220,400</div>
-              <div className="text-gray-500 text-xs sm:text-base">Youth Reached</div>
-            </div>
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-2 sm:mb-3">
-                <BookOpen className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <div className="text-base sm:text-3xl font-bold text-gray-800 mb-0.5 sm:mb-2">2024</div>
-              <div className="text-gray-500 text-xs sm:text-base">Founded</div>
-            </div>
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mx-auto mb-2 sm:mb-3">
-                <Heart className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="currentColor" />
-              </div>
-              <div className="text-base sm:text-3xl font-bold text-gray-800 mb-0.5 sm:mb-2">Youth-Led</div>
-              <div className="text-gray-500 text-xs sm:text-base">Organization</div>
+            <div className="flex flex-wrap gap-3 mt-6 justify-center lg:justify-start">
+              <button
+                onClick={() => { trackEvent('donate_button_click', { location: 'hero' }); onDonateClick(); }}
+                className="group inline-flex items-center gap-2 bg-pop-pink text-pop-cream px-5 py-2.5 font-sans font-semibold text-sm rounded-full hover:scale-105 transition-transform shadow-md"
+              >
+                Support the work
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button
+                onClick={() => { trackEvent('learn_more_click'); scrollToAbout(); }}
+                className="group inline-flex items-center gap-2 bg-pop-cream text-pop-pink px-5 py-2.5 font-sans font-semibold text-sm rounded-full border-2 border-pop-pink hover:bg-pop-pink hover:text-pop-cream transition-colors shadow-md"
+              >
+                Read what we believe
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
           </div>
 
-          {/* Moving Media Banner */}
-          <div className="mt-12">
-            <MovingMediaBanner />
+          {/* Right: art (position fine-tuned via the layout editor) */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-start">
+            <Editable
+              id="hero-illustration"
+              className="w-[26rem] sm:w-[34rem] md:w-[41rem] lg:w-[43rem] xl:w-[48rem] max-w-full"
+            >
+              <img
+                src={IMAGES.illustration.heroGroup}
+                alt="Three young people sitting together with art supplies"
+                className="w-full h-auto animate-ambient origin-center will-change-transform drop-shadow-xl"
+              />
+            </Editable>
           </div>
         </div>
-      </div>
 
-      {/* Floating shapes for visual interest */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-pink-200 rounded-full opacity-60 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-16 h-16 bg-pink-200 rounded-full opacity-60 animate-pulse delay-1000"></div>
-      <div className="absolute top-1/2 left-20 w-8 h-8 bg-pink-300 rounded-full opacity-40 animate-bounce delay-500"></div>
+        {/* Stats — compact, aligned aesthetically */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto">
+          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 py-1.5 inline-flex items-center gap-2 shadow-sm">
+            <Users className="w-3 h-3 text-pop-pink" />
+            <span className="font-bold text-pop-ink text-xs leading-none">220,400</span>
+            <span className="text-pop-ink/60 text-[10px] leading-none">Youth Reached</span>
+          </div>
+          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 py-1.5 inline-flex items-center gap-2 shadow-sm">
+            <BookOpen className="w-3 h-3 text-pop-pink" />
+            <span className="font-bold text-pop-ink text-xs leading-none">2024</span>
+            <span className="text-pop-ink/60 text-[10px] leading-none">Founded</span>
+          </div>
+          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 py-1.5 inline-flex items-center gap-2 shadow-sm">
+            <Heart className="w-3 h-3 text-pop-pink" fill="currentColor" />
+            <span className="font-bold text-pop-ink text-xs leading-none">Youth-Led</span>
+          </div>
+        </div>
+
+        {/* Featured-in band — compact, fits within hero */}
+        <div className="w-full mt-4 lg:mt-6 max-w-3xl mx-auto">
+          <MovingMediaBanner />
+        </div>
+      </div>
     </section>
   );
 };

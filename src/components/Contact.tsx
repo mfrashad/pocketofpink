@@ -19,145 +19,159 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const faqs = [
+  {
+    q: 'Is the module suitable for all children?',
+    a: 'Yes, it is designed for primary school-aged children, with plans for expansion to other age groups.',
+  },
+  {
+    q: 'Is POP affiliated with any political or religious group?',
+    a: 'No, POP is an independent, youth-led non-profit organisation.',
+  },
+  {
+    q: 'How can I bring POP to my school?',
+    a: 'Contact us via email or social media to arrange workshops or order modules for your institution.',
+  },
+  {
+    q: 'What languages is the module available in?',
+    a: 'Currently available in English, with a Bahasa Malaysia version in development.',
+  },
+];
+
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-pink-600 to-pink-500 bg-clip-text text-transparent">
-              Contact Us
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to get involved or bring our workshops to your community? 
-            We'd love to hear from you!
-          </p>
-        </div>
+    <section
+      id="contact"
+      className="bg-pop-creamSoft py-20 lg:py-28"
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
+          {/* Left: contact */}
+          <div>
+            <h2 className="pop-brush text-5xl sm:text-6xl lg:text-7xl uppercase leading-[0.95] mb-8">
+              Say hi.
+            </h2>
+            <p className="font-sans text-lg lg:text-xl leading-relaxed mb-10 text-justify">
+              Ready to get involved, bring our workshops to your community, or
+              just want to talk? We'd love to hear from you.
+            </p>
 
-        {/* Main Contact Card */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-gray-50 rounded-2xl p-8">
-            {/* Email Section */}
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
-              <div className="flex items-center justify-center space-x-3 p-4 bg-white rounded-xl shadow-sm">
-                <Mail className="w-5 h-5 text-pink-600" />
-                <a
-                  href="mailto:kaveesha@pocketofpink.com"
-                  onClick={() => trackEvent('contact_email_click')}
-                  className="text-pink-600 hover:text-pink-700 font-medium"
-                >
-                  kaveesha@pocketofpink.com
-                </a>
-              </div>
-            </div>
+            <a
+              href="mailto:kaveesha@pocketofpink.com"
+              onClick={() => trackEvent('contact_email_click')}
+              className="inline-flex items-center gap-3 pop-link font-sans font-semibold text-lg lg:text-xl mb-10"
+            >
+              <Mail className="w-5 h-5" />
+              kaveesha@pocketofpink.com
+            </a>
 
-            {/* Social Media */}
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-bold text-gray-800 mb-6">Follow Us</h4>
-              <div className="flex justify-center space-x-4">
+            <div className="border-t border-pop-ink/10 pt-8">
+              <div className="flex gap-3">
                 <a
                   href="https://www.instagram.com/pocketofpink/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('social_link_click', { platform: 'instagram' })}
-                  className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors"
+                  className="w-12 h-12 rounded-full bg-pop-cream flex items-center justify-center hover:bg-pop-ink hover:text-pop-cream transition-colors"
+                  aria-label="Instagram"
                 >
-                  <Instagram className="w-6 h-6 text-white" />
+                  <Instagram className="w-5 h-5" />
                 </a>
                 <a
                   href="https://www.linkedin.com/company/pocket-of-pink-pop"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('social_link_click', { platform: 'linkedin' })}
-                  className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
+                  className="w-12 h-12 rounded-full bg-pop-cream flex items-center justify-center hover:bg-pop-ink hover:text-pop-cream transition-colors"
+                  aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-6 h-6 text-white" />
+                  <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="https://x.com/mypocketofpink"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('social_link_click', { platform: 'twitter' })}
-                  className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-900 transition-colors"
+                  className="w-12 h-12 rounded-full bg-pop-cream flex items-center justify-center hover:bg-pop-ink hover:text-pop-cream transition-colors"
+                  aria-label="X (Twitter)"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-white"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </svg>
                 </a>
                 <a
                   href="https://www.tiktok.com/@pocketofpink"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('social_link_click', { platform: 'tiktok' })}
-                  className="w-12 h-12 bg-black rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors"
+                  className="w-12 h-12 rounded-full bg-pop-cream flex items-center justify-center hover:bg-pop-ink hover:text-pop-cream transition-colors"
+                  aria-label="TikTok"
                 >
-                  <TiktokIcon className="w-6 h-6 text-white" />
+                  <TiktokIcon className="w-5 h-5" />
                 </a>
               </div>
             </div>
+          </div>
 
-            {/* Quick Info */}
-            <div className="space-y-3">
-              <h4 className="text-lg font-bold text-gray-800 mb-4 text-center">Quick Info</h4>
-              <div className="bg-white rounded-lg p-3 shadow-sm">
-                <span className="font-semibold text-gray-800">Organization:</span>
-                <span className="text-gray-600 ml-2">Non-profit, Youth-led</span>
+          {/* Right: quick info */}
+          <div className="rounded-2xl p-8 bg-pop-cream">
+            <h3 className="pop-brush text-3xl uppercase text-pop-ink mb-6">
+              Quick info
+            </h3>
+            <dl className="divide-y-2 divide-pop-ink/15">
+              <div className="py-3 flex justify-between gap-4">
+                <dt className="font-sans font-semibold text-pop-ink">Organisation</dt>
+                <dd className="font-sans text-pop-ink/80 text-right">Non-profit, youth-led</dd>
               </div>
-              <div className="bg-white rounded-lg p-3 shadow-sm">
-                <span className="font-semibold text-gray-800">Founded:</span>
-                <span className="text-gray-600 ml-2">2024</span>
+              <div className="py-3 flex justify-between gap-4">
+                <dt className="font-sans font-semibold text-pop-ink">Founded</dt>
+                <dd className="font-sans text-pop-ink/80 text-right">2024</dd>
               </div>
-              <div className="bg-white rounded-lg p-3 shadow-sm">
-                <span className="font-semibold text-gray-800">Focus:</span>
-                <span className="text-gray-600 ml-2">Gender justice, empowerment & education</span>
+              <div className="py-3 flex justify-between gap-4">
+                <dt className="font-sans font-semibold text-pop-ink">Based in</dt>
+                <dd className="font-sans text-pop-ink/80 text-right">Kuala Lumpur, Malaysia</dd>
               </div>
-              <div className="bg-white rounded-lg p-3 shadow-sm">
-                <span className="font-semibold text-gray-800">Workshop Price:</span>
-                <span className="text-gray-600 ml-2">Contact for pricing</span>
+              <div className="py-3 flex justify-between gap-4">
+                <dt className="font-sans font-semibold text-pop-ink">Focus</dt>
+                <dd className="font-sans text-pop-ink/80 text-right">
+                  Gender justice, youth empowerment, education
+                </dd>
               </div>
-            </div>
+              <div className="py-3 flex justify-between gap-4">
+                <dt className="font-sans font-semibold text-pop-ink">Workshops</dt>
+                <dd className="font-sans text-pop-ink/80 text-right">Contact for pricing</dd>
+              </div>
+            </dl>
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div className="mt-20">
-          <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
-            Frequently Asked Questions
+        {/* FAQ */}
+        <div>
+          <h3 className="pop-brush text-4xl lg:text-5xl uppercase text-pop-ink mb-10">
+            Questions we get a lot.
           </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <h4 className="text-lg font-bold text-gray-800 mb-3">
-                Is the module suitable for all children?
-              </h4>
-              <p className="text-gray-600">
-                Yes, it is designed for primary school-aged children, with plans for expansion to other age groups.
-              </p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <h4 className="text-lg font-bold text-gray-800 mb-3">
-                Is POP affiliated with any political or religious group?
-              </h4>
-              <p className="text-gray-600">
-                No, POP is an independent, youth-led non-profit organization.
-              </p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <h4 className="text-lg font-bold text-gray-800 mb-3">
-                How can I bring POP to my school?
-              </h4>
-              <p className="text-gray-600">
-                Contact us via email or social media to arrange workshops or order modules for your institution.
-              </p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <h4 className="text-lg font-bold text-gray-800 mb-3">
-                What languages is the module available in?
-              </h4>
-              <p className="text-gray-600">
-                Currently available in English, with Bahasa Malaysia version in development.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-y-8 gap-x-12">
+            {faqs.map((faq) => (
+              <div key={faq.q} className="border-t border-pop-ink/15 pt-5">
+                <h4 className="font-display font-semibold text-xl text-pop-ink mb-3">
+                  {faq.q}
+                </h4>
+                <p className="font-sans text-base leading-relaxed text-pop-ink/80 text-justify">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,0 +1,30 @@
+{
+  "about-future-equality": {
+    "x": -166,
+    "y": -829,
+    "scale": 0.6231735229492187,
+    "rotation": 0,
+    "z": 0
+  },
+  "about-intro-1-pos": {
+    "x": 0,
+    "y": 0,
+    "scale": 1.0100006103515624,
+    "rotation": 0,
+    "z": 0
+  },
+  "about-headline-block": {
+    "x": 18,
+    "y": 165,
+    "scale": 0.7721593306012918,
+    "rotation": 0,
+    "z": 0
+  },
+  "hero-sticker-justice-equality": {
+    "x": 1073,
+    "y": 33,
+    "scale": 1.1059051513671876,
+    "rotation": 0,
+    "z": 0
+  }
+}

@@ -2,10 +2,33 @@
 // Update URLs in this file to change images throughout the entire website
 
 export const IMAGES = {
+  // Hand-drawn POP illustrations (used in the 2026 redesign)
+  illustration: {
+    heroGroup: "images/illustrations/hero-group.png",
+    aboutBook: "images/illustrations/about-book.png",
+    pillarNow: "images/illustrations/pillar-now.png",
+    pillarEveryone: "images/illustrations/pillar-everyone.png",
+    pillarJoy: "images/illustrations/pillar-joy.png",
+    pillarCreativity: "images/illustrations/pillar-creativity.png",
+    pillarLive: "images/illustrations/pillar-live.png",
+    support: "images/illustrations/support.png",
+    media: "images/illustrations/media.png",
+    stickers: {
+      feminismFits: "images/illustrations/stickers/feminism-fits.png",
+      popPatriarchy: "images/illustrations/stickers/pop-patriarchy.png",
+      futureEquality: "images/illustrations/stickers/future-equality.png",
+      justiceEquality: "images/illustrations/stickers/justice-equality.png",
+      pocketsEmpowerment: "images/illustrations/stickers/pockets-empowerment.png",
+      faceBun: "images/illustrations/stickers/face-bun.png",
+      faceBob: "images/illustrations/stickers/face-bob.png",
+    },
+  },
+
   // Logo
   logo: {
-    main: "images/logo.png", // Square logo for header
-    icon: "images/logo.png"  // Small icon version
+    main: "images/poppocketofpower-transparent.png", // Pocket of Pink / Pop of Power wordmark (transparent)
+    heart: "images/pop-heart-mark.png",              // Heart icon + POCKET OF PINK
+    icon: "images/logo.png"                          // Small square icon (favicon-style)
   },
 
   // Hero Section

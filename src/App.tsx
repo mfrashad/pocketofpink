@@ -11,6 +11,7 @@ import GetInvolved from './components/GetInvolved';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DonationModal from './components/DonationModal';
+import EditToolbar from './components/EditToolbar';
 import ExpressToEmpower from './pages/ExpressToEmpower';
 import Altorithm from './pages/Altorithm.tsx';
 
@@ -19,9 +20,25 @@ function App() {
   const [route, setRoute] = useState<string>(window.location.hash.replace('#', ''));
 
   useEffect(() => {
-    const onHashChange = () => setRoute(window.location.hash.replace('#', ''));
+    const onHashChange = () => {
+      const next = window.location.hash.replace('#', '');
+      setRoute(next);
+      // When moving between top-level routes (subpage <-> home), snap to top.
+      // Don't override scroll for same-page section anchors (#about, #mission...).
+      if (next.startsWith('/') || next === '' || next === 'home') {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      }
+    };
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  // First load on a subpage URL — ensure we start at the top.
+  useEffect(() => {
+    if (route.startsWith('/')) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDonateClick = () => {
@@ -56,10 +73,11 @@ function App() {
         </>
       )}
       <Footer />
-      <DonationModal 
-        isOpen={isDonationModalOpen} 
-        onClose={handleCloseDonationModal} 
+      <DonationModal
+        isOpen={isDonationModalOpen}
+        onClose={handleCloseDonationModal}
       />
+      <EditToolbar />
     </div>
   );
 }

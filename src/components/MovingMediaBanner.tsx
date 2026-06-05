@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MovingMediaBanner: React.FC = () => {
-  // Media logos with their names
   const mediaLogos = [
     { name: 'Malaysiakini', logo: '/images/media/malaysiakini.png' },
     { name: 'Astro Awani', logo: '/images/media/awani.png' },
@@ -14,46 +13,33 @@ const MovingMediaBanner: React.FC = () => {
     { name: 'Al-Jazeera', logo: '/images/media/aljazeera.png' },
   ];
 
-  // Duplicate the array to create seamless infinite scroll
   const duplicatedLogos = [...mediaLogos, ...mediaLogos];
 
   return (
-    <section className="py-12 bg-gray-10 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-8">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-            Featured In
-          </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto px-4">
-            Our work has been recognized and covered by leading media organizations
-          </p>
-        </div>
-
-        {/* Moving Banner */}
-        <div className="relative">
-          {/* Gradient overlays for smooth edges */}
-          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
-          
-          {/* Scrolling container */}
-          <div className="flex animate-infinite-scroll hover:pause-animation">
+    <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 py-2 shadow-sm overflow-hidden">
+      <div className="flex items-center gap-3">
+        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-pop-pink whitespace-nowrap pl-2">
+          Featured in
+        </span>
+        <div className="relative flex-1 overflow-hidden">
+          {/* fade edges */}
+          <div className="absolute left-0 top-0 w-6 h-full bg-gradient-to-r from-pop-cream to-transparent z-10" />
+          <div className="absolute right-0 top-0 w-6 h-full bg-gradient-to-l from-pop-cream to-transparent z-10" />
+          <div className="flex animate-infinite-scroll hover:pause-animation items-center">
             {duplicatedLogos.map((media, index) => (
               <div
                 key={`${media.name}-${index}`}
-                className="flex-shrink-0 mx-8 flex items-center justify-center"
-                style={{ minWidth: '200px' }}
+                className="flex-shrink-0 mx-3 flex items-center justify-center"
               >
                 <img
                   src={media.logo}
                   alt={media.name}
-                  className="h-12 md:h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
+                  className="h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
                   onError={(e) => {
-                    // Fallback to text if image fails to load
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
                     const textDiv = document.createElement('div');
-                    textDiv.className = 'text-gray-500 font-semibold text-sm text-center px-4 py-2 border border-gray-300 rounded';
+                    textDiv.className = 'text-pop-ink/60 font-semibold text-[10px] text-center px-2 py-1';
                     textDiv.textContent = media.name;
                     target.parentElement?.appendChild(textDiv);
                   }}
@@ -63,8 +49,8 @@ const MovingMediaBanner: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default MovingMediaBanner; 
+export default MovingMediaBanner;
