@@ -13,50 +13,49 @@ const MainMenu: React.FC = () => {
   const { titleCard } = IMAGES;
 
   return (
-    <div className="flex flex-col items-center justify-center text-center py-2">
-      <img
-        src={titleCard.src}
-        alt={titleCard.alt}
-        className="mx-auto w-full max-w-[220px] md:max-w-[280px]"
-        style={{ imageRendering: 'pixelated' }}
-      />
+    <div className="flex flex-col items-center justify-center min-h-[80vh] text-center">
+      <div className="text-center mb-4">
+        <img src={titleCard.src} alt={titleCard.alt} className={`${titleCard.sizeClasses} ${titleCard.marginClasses || ''}`} />
+      </div>
 
-      <h1 className="text-xs sm:text-sm font-normal text-[#1a0d1f] mt-3 mb-4 tracking-widest">
-        ▼ POCKET PAL ▼
-      </h1>
-
-      <div className="space-y-3 w-full max-w-xs">
-        <button onClick={() => setScreen('chapter-select')} className="pixel-btn w-full">
-          ▶ Start Game
+      <div className="space-y-4 w-full max-w-xs">
+        <button
+          onClick={() => setScreen('chapter-select')}
+          className="w-full bg-gradient-to-r from-pink-400 to-purple-400 text-white py-3 px-5 rounded-xl font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+        >
+          🎮 Start Game
         </button>
-        <button onClick={() => setScreen('journal')} className="pixel-btn alt w-full">
-          ★ My Journal
+        <button
+          onClick={() => setScreen('journal')}
+          className="w-full bg-gradient-to-r from-teal-400 to-blue-400 text-white py-3 px-5 rounded-xl font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+        >
+          📖 My Journal
         </button>
-        <button onClick={() => setScreen('about')} className="pixel-btn warn w-full">
-          ? About POP
+        <button
+          onClick={() => setScreen('about')}
+          className="w-full bg-gradient-to-r from-yellow-400 to-orange-400 text-white py-3 px-5 rounded-xl font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+        >
+          ℹ️ About POP
         </button>
       </div>
 
-      <div className="pixel-card mt-5 p-3 w-full max-w-xs">
-        <div className="flex justify-between items-center text-[#1a0d1f]">
-          <div className="text-center px-2">
-            <div className="font-['Press_Start_2P'] text-sm">{gameState.empowermentTokens}</div>
-            <div className="text-xs tracking-wider mt-1">TOKENS</div>
+      <div className="mt-8 bg-white/60 backdrop-blur rounded-xl p-4 w-full max-w-xs">
+        <div className="flex justify-between items-center">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-purple-600">{gameState.empowermentTokens}</div>
+            <div className="text-sm text-gray-600">Tokens</div>
           </div>
-          <div className="text-center px-2">
-            <div className="font-['Press_Start_2P'] text-sm">{gameState.earnedBadges.length}</div>
-            <div className="text-xs tracking-wider mt-1">BADGES</div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-pink-600">{gameState.earnedBadges.length}</div>
+            <div className="text-sm text-gray-600">Badges</div>
           </div>
-          <div className="text-center px-2">
-            <div className="font-['Press_Start_2P'] text-sm">{gameState.completedChapters.length}/{CHAPTERS.length}</div>
-            <div className="text-xs tracking-wider mt-1">CHAPTERS</div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-teal-600">{gameState.completedChapters.length}/{CHAPTERS.length}</div>
+            <div className="text-sm text-gray-600">Chapters</div>
           </div>
         </div>
       </div>
-
-      <button onClick={resetGame} className="mt-4 text-xs text-[#1a0d1f]/60 underline hover:text-[#1a0d1f]">
-        [ Reset Progress ]
-      </button>
+       <button onClick={resetGame} className="mt-8 text-sm text-gray-500 hover:underline">Reset Game Progress</button>
     </div>
   );
 };

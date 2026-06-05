@@ -350,7 +350,7 @@ const ExpressToEmpower: React.FC = () => {
           <iframe
             src="/game/index.html"
             title="Pocket Pal — The Game"
-            className="block w-screen relative left-1/2 -translate-x-1/2 h-[100svh] min-h-[700px] border-0"
+            className="block w-full h-screen min-h-[720px] border-0"
             allow="autoplay; fullscreen; clipboard-read; clipboard-write"
           />
         </section>

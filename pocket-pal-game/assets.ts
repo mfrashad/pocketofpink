@@ -8,7 +8,7 @@ interface ImageAsset {
 
 export const IMAGES: Record<string, ImageAsset> = {
   // Main Menu
-  titleCard: { src: 'https://i.imgur.com/klZYunH.png', alt: 'Express to Empower title card', sizeClasses: 'mx-auto w-full max-w-[280px] md:max-w-[340px]', marginClasses: 'mt-2' },
+  titleCard: { src: 'https://i.imgur.com/klZYunH.png', alt: 'Express to Empower title card', sizeClasses: 'mx-auto w-full', marginClasses: 'mt-12' },
 
   // Chapter 1
   bodyOutline: { src: 'https://i.imgur.com/7QBMamc.png', alt: 'Simple body outline for drawing activities' },
