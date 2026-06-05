@@ -44,10 +44,7 @@ function App() {
   }), [gameState, completeChapter, earnBadge, addJournalEntry, addTokens, resetGame, setScreen]);
 
   const backgroundStyle = useMemo(() => ({
-    backgroundImage: "url('https://i.imgur.com/PiuCj0B.png')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundAttachment: 'fixed',
+    // Solid pixel-grid background instead of the photo, for a retro feel
   }), []);
 
   const renderScreen = () => {
@@ -75,8 +72,8 @@ function App() {
 
   return (
     <GameContext.Provider value={contextValue}>
-      <div className="min-h-screen text-gray-800" style={backgroundStyle}>
-        <main className={`mx-auto p-4 md:p-8 ${screen === 'main-menu' ? 'max-w-7xl' : 'max-w-4xl'}`}>
+      <div className="min-h-screen text-[#1a0d1f] pixel-bg scanlines" style={backgroundStyle}>
+        <main className={`mx-auto p-4 md:p-6 ${screen === 'main-menu' ? 'max-w-4xl' : 'max-w-5xl'}`}>
           {renderScreen()}
         </main>
         {showConfetti && <Confetti onComplete={() => setShowConfetti(false)} />}
@@ -84,7 +81,8 @@ function App() {
         {/* Mute Button */}
         <button
             onClick={handleMuteToggle}
-            className="no-print fixed bottom-6 left-6 bg-white/80 text-gray-700 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform z-40"
+            className="no-print fixed bottom-6 left-6 w-12 h-12 bg-[#fefefe] border-[3px] border-[#1a0d1f] flex items-center justify-center hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform z-40"
+            style={{ boxShadow: '4px 4px 0 0 #1a0d1f' }}
             aria-label="Toggle Sound"
         >
             <Icon name={isMuted ? 'VolumeOff' : 'VolumeOn'} className="w-6 h-6" />

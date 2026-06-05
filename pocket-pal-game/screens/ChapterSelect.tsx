@@ -10,15 +10,18 @@ const ChapterSelect: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center">
-            <div className="flex items-center justify-between mb-6 w-full">
+            <div className="flex items-center justify-between mb-5 w-full">
                 <button
                     onClick={() => setScreen('main-menu')}
-                    className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all"
+                    className="pixel-btn ghost !p-2 !text-[10px]"
+                    title="Back to menu"
                 >
-                    <Icon name="Home" className="w-6 h-6 text-gray-600" />
+                    ← HOME
                 </button>
-                <h1 className="text-2xl md:text-3xl font-black text-gray-800">Choose Your Adventure</h1>
-                <div className="w-10" />
+                <h1 className="text-sm sm:text-base font-['Press_Start_2P'] text-[#1a0d1f] tracking-widest">
+                    ◆ SELECT STAGE ◆
+                </h1>
+                <div className="w-16" />
             </div>
 
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -32,45 +35,47 @@ const ChapterSelect: React.FC = () => {
                             type="button"
                             disabled={isLocked}
                             onClick={() => !isLocked && setScreen({ screen: 'chapter', id: chapter.id })}
-                            className={`relative text-left rounded-3xl p-6 shadow-xl transition-all duration-200
-                                ${isLocked
-                                    ? 'bg-gray-100 cursor-not-allowed opacity-70'
-                                    : 'bg-white hover:-translate-y-1 hover:shadow-2xl cursor-pointer'}
-                            `}
+                            className={`pixel-card text-left p-5 ${
+                                isLocked
+                                    ? 'opacity-60 cursor-not-allowed'
+                                    : 'hover:translate-x-[-2px] hover:translate-y-[-2px] cursor-pointer'
+                            }`}
                             style={{
-                                borderTop: `8px solid ${chapter.color}`,
+                                background: '#fefefe',
+                                borderLeft: `8px solid ${chapter.color}`,
+                                transition: 'transform 0.1s ease, box-shadow 0.1s ease',
                             }}
                         >
                             <div className="flex items-start justify-between mb-3">
-                                <span className="text-5xl" aria-hidden>{chapter.emoji}</span>
+                                <span className="text-4xl leading-none" aria-hidden style={{ imageRendering: 'pixelated' }}>{chapter.emoji}</span>
                                 {isLocked ? (
-                                    <span className="bg-gray-200 p-2 rounded-full">
-                                        <Icon name="Lock" className="w-5 h-5 text-gray-500" />
+                                    <span className="border-[3px] border-[#1a0d1f] bg-[#efe5d2] p-1.5">
+                                        <Icon name="Lock" className="w-4 h-4 text-[#1a0d1f]" />
                                     </span>
                                 ) : isCompleted ? (
-                                    <span className="bg-green-100 p-2 rounded-full">
-                                        <Icon name="Check" className="w-5 h-5 text-green-600" />
+                                    <span className="border-[3px] border-[#1a0d1f] bg-[#6be8c5] p-1.5">
+                                        <Icon name="Check" className="w-4 h-4 text-[#1a0d1f]" />
                                     </span>
                                 ) : (
-                                    <span className="bg-pink-100 text-pink-600 text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full">
+                                    <span className="border-[3px] border-[#1a0d1f] bg-[#ec94cc] text-[#1a0d1f] text-[9px] font-['Press_Start_2P'] uppercase px-2 py-1.5">
                                         Play
                                     </span>
                                 )}
                             </div>
 
-                            <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">
-                                Chapter {index + 1}
+                            <p className="font-['Press_Start_2P'] text-[9px] uppercase tracking-widest text-[#1a0d1f]/70 mb-1">
+                                Stage {String(index + 1).padStart(2, '0')}
                             </p>
-                            <h3 className="font-black text-lg text-gray-800 leading-tight mb-1">
+                            <h3 className="font-['Press_Start_2P'] text-xs sm:text-sm text-[#1a0d1f] leading-tight mb-2">
                                 {chapter.zone}
                             </h3>
-                            <p className="text-sm text-gray-600 font-medium leading-snug">
+                            <p className="text-base text-[#1a0d1f]/85 leading-snug">
                                 {chapter.title}
                             </p>
 
                             {isLocked && (
-                                <p className="mt-3 text-xs text-gray-500 font-semibold">
-                                    Finish the previous chapter to unlock
+                                <p className="mt-3 text-xs font-['Press_Start_2P'] uppercase text-[#1a0d1f]/60 leading-relaxed">
+                                    Finish previous to unlock
                                 </p>
                             )}
                         </button>
