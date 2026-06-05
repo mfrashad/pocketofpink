@@ -45,8 +45,24 @@ const Editable: React.FC<EditableProps> = ({ id, className, children, rotatable 
   const [resize, setResize] = useState<ResizeStart | null>(null);
   const [rotate, setRotate] = useState<RotateStart | null>(null);
   const [hovered, setHovered] = useState(false);
+  // Layouts in layout.json are tuned for desktop pixels; on small screens those
+  // x/y translates push things off canvas, so we skip them below md (768px).
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window === 'undefined' ? true : window.innerWidth >= 768
+  );
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const onResize = () => setIsDesktop(window.innerWidth >= 768);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
-  const transform = `translate(${item.x}px, ${item.y}px) scale(${item.scale}) rotate(${item.rotation}deg)`;
+  // On mobile, drop the pixel x/y but keep scale + rotation so the visual still
+  // honours the user's design (just without desktop positioning that overflows).
+  const tx = isDesktop ? item.x : 0;
+  const ty = isDesktop ? item.y : 0;
+  const transform = `translate(${tx}px, ${ty}px) scale(${item.scale}) rotate(${item.rotation}deg)`;
   // No `position` override: rely on the wrapper className (or a parent) for positioning.
   // In edit mode every Editable lifts itself above regular content (>= 8000) so clicks
   // always land on it. Relative z still kept via +item.z so layering works between editables.

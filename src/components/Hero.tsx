@@ -82,7 +82,7 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
       <div className="absolute inset-0 select-none z-0 overflow-hidden">
         <Editable
           id="hero-sticker-pop-patriarchy"
-          className="hidden md:block absolute -top-4 -right-10 lg:-right-16 w-52 lg:w-[22rem] xl:w-96"
+          className="absolute -top-2 -right-6 md:-top-4 md:-right-10 lg:-right-16 w-28 sm:w-40 md:w-52 lg:w-[22rem] xl:w-96"
         >
           <img
             src={IMAGES.illustration.stickers.popPatriarchy}
@@ -95,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
 
         <Editable
           id="hero-sticker-feminism-fits-top"
-          className="hidden lg:block absolute top-2 -left-10 w-48 lg:w-[17rem]"
+          className="absolute top-0 -left-4 sm:-left-6 lg:top-2 lg:-left-10 w-24 sm:w-32 md:w-40 lg:w-[17rem]"
         >
           <img
             src={IMAGES.illustration.stickers.feminismFits}
@@ -200,7 +200,7 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
           <div className="order-1 lg:order-2 flex justify-center lg:justify-start">
             <Editable
               id="hero-illustration"
-              className="w-[26rem] sm:w-[34rem] md:w-[41rem] lg:w-[43rem] xl:w-[48rem] max-w-full"
+              className="w-72 sm:w-[28rem] md:w-[34rem] lg:w-[43rem] xl:w-[48rem] max-w-full"
             >
               <img
                 src={IMAGES.illustration.heroGroup}
