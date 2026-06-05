@@ -5,7 +5,6 @@ import ChapterSelect from './screens/ChapterSelect';
 import JournalScreen from './screens/JournalScreen';
 import ChapterContainer from './screens/ChapterContainer';
 import AboutScreen from './screens/AboutScreen';
-import AskPal from './components/AskPal';
 import { useGameState } from './hooks/useGameState';
 import { loadSounds, toggleMuteAll } from './services/soundService';
 import Confetti from './components/Confetti';
@@ -80,7 +79,6 @@ function App() {
         <main className={`mx-auto p-4 md:p-8 ${screen === 'main-menu' ? 'max-w-7xl' : 'max-w-4xl'}`}>
           {renderScreen()}
         </main>
-        <AskPal />
         {showConfetti && <Confetti onComplete={() => setShowConfetti(false)} />}
 
         {/* Mute Button */}
