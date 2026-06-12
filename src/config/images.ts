@@ -4,31 +4,31 @@
 export const IMAGES = {
   // Hand-drawn POP illustrations (used in the 2026 redesign)
   illustration: {
-    heroGroup: "images/illustrations/hero-group.png",
-    aboutBook: "images/illustrations/about-book.png",
-    pillarNow: "images/illustrations/pillar-now.png",
-    pillarEveryone: "images/illustrations/pillar-everyone.png",
-    pillarJoy: "images/illustrations/pillar-joy.png",
-    pillarCreativity: "images/illustrations/pillar-creativity.png",
-    pillarLive: "images/illustrations/pillar-live.png",
-    support: "images/illustrations/support.png",
-    media: "images/illustrations/media.png",
+    heroGroup: "images/illustrations/hero-group.webp",
+    aboutBook: "images/illustrations/about-book.webp",
+    pillarNow: "images/illustrations/pillar-now.webp",
+    pillarEveryone: "images/illustrations/pillar-everyone.webp",
+    pillarJoy: "images/illustrations/pillar-joy.webp",
+    pillarCreativity: "images/illustrations/pillar-creativity.webp",
+    pillarLive: "images/illustrations/pillar-live.webp",
+    support: "images/illustrations/support.webp",
+    media: "images/illustrations/media.webp",
     stickers: {
-      feminismFits: "images/illustrations/stickers/feminism-fits.png",
-      popPatriarchy: "images/illustrations/stickers/pop-patriarchy.png",
-      futureEquality: "images/illustrations/stickers/future-equality.png",
-      justiceEquality: "images/illustrations/stickers/justice-equality.png",
-      pocketsEmpowerment: "images/illustrations/stickers/pockets-empowerment.png",
-      faceBun: "images/illustrations/stickers/face-bun.png",
-      faceBob: "images/illustrations/stickers/face-bob.png",
+      feminismFits: "images/illustrations/stickers/feminism-fits.webp",
+      popPatriarchy: "images/illustrations/stickers/pop-patriarchy.webp",
+      futureEquality: "images/illustrations/stickers/future-equality.webp",
+      justiceEquality: "images/illustrations/stickers/justice-equality.webp",
+      pocketsEmpowerment: "images/illustrations/stickers/pockets-empowerment.webp",
+      faceBun: "images/illustrations/stickers/face-bun.webp",
+      faceBob: "images/illustrations/stickers/face-bob.webp",
     },
   },
 
   // Logo
   logo: {
-    main: "images/poppocketofpower-transparent.png", // Pocket of Pink / Pop of Power wordmark (transparent)
-    heart: "images/pop-heart-mark.png",              // Heart icon + POCKET OF PINK
-    icon: "images/logo.png"                          // Small square icon (favicon-style)
+    main: "images/poppocketofpower-transparent.webp", // Pocket of Pink / Pop of Power wordmark (transparent)
+    heart: "images/pop-heart-mark.webp",              // Heart icon + POCKET OF PINK
+    icon: "images/logo.webp"                          // Small square icon (favicon-style)
   },
 
   // Hero Section
@@ -43,66 +43,66 @@ export const IMAGES = {
 
   // Mission & Vision Section
   mission: {
-    creativeEmpowerment: "images/expresstoempower-2.jpg",
-    accessibleEducation: "images/workshop2.jpg",
-    challengeNorms: "images/workshop3.jpg",
-    advocacyCSE: "images/workshop4.jpg",
-    visionBackground: "images/workshop5.jpg",
-    visionChildren: "images/workshop1.jpg"
+    creativeEmpowerment: "images/expresstoempower-2.webp",
+    accessibleEducation: "images/workshop2.webp",
+    challengeNorms: "images/workshop3.webp",
+    advocacyCSE: "images/workshop4.webp",
+    visionBackground: "images/workshop5.webp",
+    visionChildren: "images/workshop1.webp"
   },
 
   // Activities Section
   activities: {
-    schoolWorkshops: "./images/workshop1.jpg",
-    communityEvents: "images/workshop2.jpg",
-    advocacyCampaigns: "images/workshop3.jpg",
-    workshopShowcase: "images/workshop4.jpg",
-    futurePlans: "images/workshop5.jpg"
+    schoolWorkshops: "./images/workshop1.webp",
+    communityEvents: "images/workshop2.webp",
+    advocacyCampaigns: "images/workshop3.webp",
+    workshopShowcase: "images/workshop4.webp",
+    futurePlans: "images/workshop5.webp"
   },
 
   // Team Section
   team: {
-    ainHusniza: "images/team/ain.jpg",
-    iqsaAqilah: "images/team/iqsa.jpg",
-    adeliaKhalid: "images/team/adelia.jpg",
-    damiaNourrysFaris: "images/team/nourrys.jpg",
-    kaveeshaThamilarasu: "images/team/kaveen.jpg",
-    karyn: "images/team/karyn.jpg",
+    ainHusniza: "images/team/ain.webp",
+    iqsaAqilah: "images/team/iqsa.webp",
+    adeliaKhalid: "images/team/adelia.webp",
+    damiaNourrysFaris: "images/team/nourrys.webp",
+    kaveeshaThamilarasu: "images/team/kaveen.webp",
+    karyn: "images/team/karyn.webp",
     teamCollaboration: "https://images.squarespace-cdn.com/content/6720a89eceb09d1b4180431a/5f112a05-416d-4689-afe6-cd670c6e20eb/website+work+2.png?content-type=image%2Fpng"
   },
 
   // Projects Section
   projects: {
     expressToEmpowerBook: "https://images.squarespace-cdn.com/content/6720a89eceb09d1b4180431a/e8719adb-8346-4358-85ab-4bb2d0efeabe/Cover.png?content-type=image%2Fpng",
-    altorithm: "images/altorithm.png",
-    expressToEmpower: "images/expresstoempower-1.jpg"
+    altorithm: "images/altorithm.webp",
+    expressToEmpower: "images/expresstoempower-1.webp"
   },
 
   expressToEmpower: {
-    ourResponse: "images/workshop5.jpg",
+    ourResponse: "images/workshop5.webp",
     // Photos for the "Case in Point" section (Sri KDU workshop)
     caseInPoint: [
-      "images/srikdu.jpg",
-      "images/srikdu-2.jpg",
-      "images/srikdu-3.jpg",
+      "images/srikdu.webp",
+      "images/srikdu-2.webp",
+      "images/srikdu-3.webp",
     ],
     // Visual for "Why Art? Why Now?"
-    whyArt: "images/expresstoempower-3.jpg",
+    whyArt: "images/expresstoempower-3.webp",
     // Visuals for "How It Works"
     howItWorks: {
-      teachersWorkshop: "images/workshop6.jpg",
-      pocketPalHome: "images/expresstoempower-2.jpg",
+      teachersWorkshop: "images/workshop6.webp",
+      pocketPalHome: "images/expresstoempower-2.webp",
     },
   },
 
   // Get Involved Section
   getInvolved: {
-    writers: "images/workshop1.jpg",
-    illustrators: "images/workshop2.jpg",
-    videographers: "images/workshop3.jpg",
-    advocacyCampaigners: "images/workshop4.jpg",
+    writers: "images/workshop1.webp",
+    illustrators: "images/workshop2.webp",
+    videographers: "images/workshop3.webp",
+    advocacyCampaigners: "images/workshop4.webp",
     joinTeam: "https://images.squarespace-cdn.com/content/6720a89eceb09d1b4180431a/5f112a05-416d-4689-afe6-cd670c6e20eb/website+work+2.png?content-type=image%2Fpng",
-    callToActionBackground: "images/workshop1.jpg"
+    callToActionBackground: "images/workshop1.webp"
   },
 
   // Video Section

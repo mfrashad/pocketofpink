@@ -20,7 +20,7 @@ const pillars: Pillar[] = [
       'Young people are not a pipeline. We already lead, already know, and already have the power to change things. We believe young people are the hope for a gender just future, not because we will be ready someday, but because we are ready now. That is why youth must lead the work in gender justice, not sit at the edge of it. Every programme, every campaign, every space we build starts from this. We are not waiting for permission. We are paving the way.',
     illustration: IMAGES.illustration.pillarNow,
     alt: 'A pink clock illustration',
-    photo: '/images/workshop1.jpg',
+    photo: '/images/workshop1.webp',
     photoAlt: 'Young people leading a Pocket of Pink workshop',
   },
   {
@@ -30,7 +30,7 @@ const pillars: Pillar[] = [
       'Gender justice is not a women\'s issue. It never was. Feminism must be carried by everyone, and it must be applied differently by everyone. For men and boys, it means recognising they have just as much at stake in dismantling systems that harm all of us. For all of us, it means understanding that class, race, and religion shape how inequality and oppression are experienced. The injustice is not the same for everyone. So the justice cannot look the same either.',
     illustration: IMAGES.illustration.pillarEveryone,
     alt: 'A feminist fist illustration',
-    photo: '/images/srikdu.jpg',
+    photo: '/images/srikdu.webp',
     photoAlt: 'A diverse group of students at a POP workshop',
   },
   {
@@ -40,7 +40,7 @@ const pillars: Pillar[] = [
       'The people fighting hardest for change are often the ones most at risk of losing themselves in it. Joy is not a reward for finishing the work. It is part of the work. Real community, genuine friendship, celebration, and rest are not soft additions to a feminist movement. They are what makes it sustainable. A feminism without joy forgets what it is fighting for. A movement without community has nothing to hold it together.',
     illustration: IMAGES.illustration.pillarJoy,
     alt: 'Two figures embracing with hearts',
-    photo: '/images/community.jpg',
+    photo: '/images/community.webp',
     photoAlt: 'POP community gathering in celebration',
   },
   {
@@ -50,7 +50,7 @@ const pillars: Pillar[] = [
       'Gender inequality is not a new problem. Generations of activists, organisers, and advocates have fought hard and moved things forward. But the work is not done, and the urgency is real. So we build on what came before and we keep experimenting. We work across grassroots community building, art, digital advocacy, and policy because we believe no single approach is enough. Innovation is how we reach young people where they are, make feminism feel alive and relevant and shift deeply held beliefs about gender; this is also work that young people are often best placed to lead. Society must be open to that. Change is urgent. Imagination is how we meet it.',
     illustration: IMAGES.illustration.pillarCreativity,
     alt: 'A paintbrush and palette illustration',
-    photo: '/images/srikdu-2.jpg',
+    photo: '/images/srikdu-2.webp',
     photoAlt: 'Students collaborating with artwork at a POP workshop',
   },
   {
@@ -60,7 +60,7 @@ const pillars: Pillar[] = [
       'Feminist values do not stop at the edge of a programme or a campaign. They must shape every space we occupy, every relationship we build, and every community we are part of. Feminism lives in the small moments as much as the big ones. In how we navigate conflict, how we hold power carefully, how we speak to each other when things are hard. It means recognising everyone\'s labour fairly, refusing to make assumptions about what someone needs based on where they come from or how they appear. The same standard of care and accountability we demand from the world must start with us.',
     illustration: IMAGES.illustration.pillarLive,
     alt: 'Two figures praying side by side',
-    photo: '/images/workshop5.jpg',
+    photo: '/images/workshop5.webp',
     photoAlt: 'POP team in conversation with young people',
   },
 ];

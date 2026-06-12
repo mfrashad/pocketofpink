@@ -11,7 +11,7 @@ const Altorithm: React.FC = () => {
       <main className="bg-black text-pop-cream font-sans">
         {/* Hero */}
         <section className="relative min-h-screen flex items-center bg-[radial-gradient(ellipse_at_center,rgba(236,148,204,0.12)_0%,rgba(0,0,0,0.85)_70%)] overflow-hidden">
-          <div className="absolute inset-0 bg-no-repeat bg-center bg-contain opacity-5" style={{ backgroundImage: 'url(/images/altorithm-transparent.png)' }} />
+          <div className="absolute inset-0 bg-no-repeat bg-center bg-contain opacity-5" style={{ backgroundImage: 'url(/images/altorithm-transparent.webp)' }} />
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24">
             <div className="max-w-4xl relative z-10">
               <h1 className="pop-brush text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.95] mb-5">
@@ -99,7 +99,7 @@ const Altorithm: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <img src="/images/altorithm-why.jpg" alt="Youth activists working on laptops" className="rounded-3xl shadow-2xl object-cover w-full h-full" />
+                <img src="/images/altorithm-why.webp" alt="Youth activists working on laptops" className="rounded-3xl shadow-2xl object-cover w-full h-full" />
               </div>
             </div>
           </div>

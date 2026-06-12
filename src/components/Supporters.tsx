@@ -1,12 +1,12 @@
 import React from 'react';
 
 const supporters = [
-  { name: 'Sri KDU Schools', logo: '/images/supporters/srikdu.png' },
-  { name: 'UNICEF Malaysia', logo: '/images/supporters/unicef.png' },
-  { name: 'Architects of Diversity (AOD)', logo: '/images/supporters/aod.png' },
+  { name: 'Sri KDU Schools', logo: '/images/supporters/srikdu.webp' },
+  { name: 'UNICEF Malaysia', logo: '/images/supporters/unicef.webp' },
+  { name: 'Architects of Diversity (AOD)', logo: '/images/supporters/aod.webp' },
   { name: "Children's Rights Innovation Fund (CRIF)", logo: '/images/supporters/crif.webp' },
-  { name: 'Charisma Movement', logo: '/images/supporters/charismamovement.png' },
-  { name: 'Girl Guides Open Companies of Petaling Utama & Bangsar, Malaysia', logo: '/images/supporters/girlguides.jpeg' },
+  { name: 'Charisma Movement', logo: '/images/supporters/charismamovement.webp' },
+  { name: 'Girl Guides Open Companies of Petaling Utama & Bangsar, Malaysia', logo: '/images/supporters/girlguides.webp' },
 ];
 
 const Supporters: React.FC = () => {

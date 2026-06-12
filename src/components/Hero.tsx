@@ -16,6 +16,18 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
   // Draggable hero photo background: y = vertical offset in px (negative = up)
   const [bgItem, setBgItem] = useLayoutItem('hero-bg-photo');
   const [bgDrag, setBgDrag] = useState<{ startY: number; baseY: number } | null>(null);
+  // Mouse parallax: -0.5..0.5 from hero center, eased via CSS transitions
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+
+  const onHeroMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (editMode) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    setParallax({
+      x: (e.clientX - rect.left) / rect.width - 0.5,
+      y: (e.clientY - rect.top) / rect.height - 0.5,
+    });
+  };
+  const onHeroMouseLeave = () => setParallax({ x: 0, y: 0 });
 
   useEffect(() => {
     if (!bgDrag) return;
@@ -42,6 +54,8 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
     <section
       id="home"
       className="relative text-pop-ink overflow-hidden pt-12 sm:pt-16 lg:pt-20 pb-10 lg:pb-14"
+      onMouseMove={onHeroMouseMove}
+      onMouseLeave={onHeroMouseLeave}
     >
       {/* photo background with pink wash for headline contrast */}
       <div className="absolute inset-0 bg-pop-pink" aria-hidden />
@@ -61,7 +75,8 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
         }`}
         style={{
           backgroundImage: `url('${IMAGES.hero.background}')`,
-          backgroundPosition: `center calc(0% + ${bgItem.y}px)`,
+          backgroundPosition: `calc(50% + ${parallax.x * -10}px) calc(0% + ${bgItem.y + parallax.y * -8}px)`,
+          transition: 'background-position 0.4s ease-out',
         }}
       >
         {editMode && (
@@ -78,90 +93,8 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
         className="absolute inset-0 bg-pop-pink/45 pointer-events-none"
       />
 
-      {/* Floating POP word-stickers — editable via ?edit=1 */}
-      <div className="absolute inset-0 select-none z-0 overflow-hidden">
-        <Editable
-          id="hero-sticker-pop-patriarchy"
-          className="absolute -top-2 -right-6 md:-top-4 md:-right-10 lg:-right-16 w-28 sm:w-40 md:w-52 lg:w-[22rem] xl:w-96"
-        >
-          <img
-            src={IMAGES.illustration.stickers.popPatriarchy}
-            alt=""
-            aria-hidden
-            className="w-full h-auto rotate-[12deg] animate-ambient drop-shadow-xl pointer-events-none"
-            style={{ animationDelay: '0s' }}
-          />
-        </Editable>
-
-        <Editable
-          id="hero-sticker-feminism-fits-top"
-          className="absolute top-0 -left-4 sm:-left-6 lg:top-2 lg:-left-10 w-24 sm:w-32 md:w-40 lg:w-[17rem]"
-        >
-          <img
-            src={IMAGES.illustration.stickers.feminismFits}
-            alt=""
-            aria-hidden
-            className="w-full h-auto rotate-[-10deg] animate-ambient drop-shadow-lg pointer-events-none"
-            style={{ animationDelay: '1.4s' }}
-          />
-        </Editable>
-
-        <Editable
-          id="hero-sticker-face-bun"
-          className="hidden md:block absolute top-[48%] -left-2 w-14 lg:w-[5rem]"
-        >
-          <img
-            src={IMAGES.illustration.stickers.faceBun}
-            alt=""
-            aria-hidden
-            className="w-full h-auto rotate-[-22deg] animate-ambient drop-shadow pointer-events-none"
-            style={{ animationDelay: '2.3s' }}
-          />
-        </Editable>
-
-        <Editable
-          id="hero-sticker-face-bob"
-          className="hidden md:block absolute top-[55%] -right-2 w-16 lg:w-24"
-        >
-          <img
-            src={IMAGES.illustration.stickers.faceBob}
-            alt=""
-            aria-hidden
-            className="w-full h-auto rotate-[18deg] animate-ambient drop-shadow pointer-events-none"
-            style={{ animationDelay: '0.7s' }}
-          />
-        </Editable>
-
-        <Editable
-          id="hero-sticker-justice-equality"
-          className="hidden lg:block absolute bottom-2 -left-12 w-[15.5rem] lg:w-[22rem] xl:w-96"
-        >
-          <img
-            src={IMAGES.illustration.stickers.justiceEquality}
-            alt=""
-            aria-hidden
-            className="w-full h-auto rotate-[-6deg] animate-ambient drop-shadow-xl pointer-events-none"
-            style={{ animationDelay: '0.4s' }}
-          />
-        </Editable>
-
-        <Editable
-          id="hero-sticker-feminism-fits-bottom"
-          className="hidden xl:block absolute bottom-4 -right-6 w-28"
-        >
-          <img
-            src={IMAGES.illustration.stickers.feminismFits}
-            alt=""
-            aria-hidden
-            className="w-full h-auto rotate-[8deg] animate-ambient drop-shadow pointer-events-none"
-            style={{ animationDelay: '1.9s' }}
-          />
-        </Editable>
-      </div>
-
-
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-2 sm:gap-8 lg:gap-12 items-center">
           {/* Left: headline + buttons */}
           <div className="order-2 lg:order-1 text-center lg:text-left">
             <Editable id="hero-headline-block" className="block" textControls>
@@ -178,20 +111,20 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
               </h1>
             </Editable>
 
-            <div className="flex flex-wrap gap-3 mt-6 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-6 justify-center lg:justify-start">
               <button
                 onClick={() => { trackEvent('donate_button_click', { location: 'hero' }); onDonateClick(); }}
-                className="group inline-flex items-center gap-2 bg-pop-pink text-pop-cream px-5 py-2.5 font-sans font-semibold text-sm rounded-full hover:scale-105 transition-transform shadow-md"
+                className="group inline-flex items-center gap-2 bg-pop-pink text-pop-cream px-4 py-2 lg:px-5 lg:py-2.5 font-sans font-semibold text-xs lg:text-sm rounded-full hover:scale-105 transition-transform shadow-md"
               >
                 Support the work
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform" />
               </button>
               <button
                 onClick={() => { trackEvent('learn_more_click'); scrollToAbout(); }}
-                className="group inline-flex items-center gap-2 bg-pop-cream text-pop-pink px-5 py-2.5 font-sans font-semibold text-sm rounded-full border-2 border-pop-pink hover:bg-pop-pink hover:text-pop-cream transition-colors shadow-md"
+                className="group inline-flex items-center gap-2 bg-pop-cream text-pop-pink px-4 py-2 lg:px-5 lg:py-2.5 font-sans font-semibold text-xs lg:text-sm rounded-full border-2 border-pop-pink hover:bg-pop-pink hover:text-pop-cream transition-colors shadow-md"
               >
                 Read what we believe
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
@@ -202,35 +135,43 @@ const Hero: React.FC<HeroProps> = ({ onDonateClick }) => {
               id="hero-illustration"
               className="block mx-auto lg:mx-0 w-64 sm:w-80 md:w-[28rem] lg:w-[43rem] xl:w-[48rem] max-w-full"
             >
-              <img
-                src={IMAGES.illustration.heroGroup}
-                alt="Three young people sitting together with art supplies"
-                className="block mx-auto w-full h-auto animate-ambient origin-center will-change-transform drop-shadow-xl"
-              />
+              <div
+                style={{
+                  transform: `translate3d(${parallax.x * 24}px, ${parallax.y * 16}px, 0)`,
+                  transition: 'transform 0.3s ease-out',
+                  willChange: 'transform',
+                }}
+              >
+                <img
+                  src={IMAGES.illustration.heroGroup}
+                  alt="Three young people sitting together with art supplies"
+                  className="block mx-auto w-full h-auto animate-ambient origin-center will-change-transform drop-shadow-xl"
+                />
+              </div>
             </Editable>
           </div>
         </div>
 
         {/* Stats — compact, aligned aesthetically */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto">
-          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 py-1.5 inline-flex items-center gap-2 shadow-sm">
+        <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-1.5 sm:gap-3 mx-auto">
+          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-2.5 sm:px-3 h-7 sm:h-9 inline-flex items-center whitespace-nowrap gap-1.5 sm:gap-2 shadow-sm">
             <Users className="w-3 h-3 text-pop-pink" />
-            <span className="font-bold text-pop-ink text-xs leading-none">220,400</span>
-            <span className="text-pop-ink/60 text-[10px] leading-none">Youth Reached</span>
+            <span className="font-bold text-pop-ink text-[11px] sm:text-xs leading-none">220,400</span>
+            <span className="text-pop-ink/60 text-[9px] sm:text-[10px] leading-none">Youth Reached</span>
           </div>
-          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 py-1.5 inline-flex items-center gap-2 shadow-sm">
+          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-2.5 sm:px-3 h-7 sm:h-9 inline-flex items-center whitespace-nowrap gap-1.5 sm:gap-2 shadow-sm">
             <BookOpen className="w-3 h-3 text-pop-pink" />
-            <span className="font-bold text-pop-ink text-xs leading-none">2024</span>
-            <span className="text-pop-ink/60 text-[10px] leading-none">Founded</span>
+            <span className="font-bold text-pop-ink text-[11px] sm:text-xs leading-none">2024</span>
+            <span className="text-pop-ink/60 text-[9px] sm:text-[10px] leading-none">Founded</span>
           </div>
-          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 py-1.5 inline-flex items-center gap-2 shadow-sm">
+          <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-2.5 sm:px-3 h-7 sm:h-9 inline-flex items-center whitespace-nowrap gap-1.5 sm:gap-2 shadow-sm">
             <Heart className="w-3 h-3 text-pop-pink" fill="currentColor" />
-            <span className="font-bold text-pop-ink text-xs leading-none">Youth-Led</span>
+            <span className="font-bold text-pop-ink text-[11px] sm:text-xs leading-none">Youth-Led</span>
           </div>
         </div>
 
         {/* Featured-in band — compact, fits within hero */}
-        <div className="w-full mt-4 lg:mt-6 max-w-3xl mx-auto">
+        <div className="w-full mt-3 sm:mt-4 lg:mt-6 max-w-xs sm:max-w-3xl mx-auto">
           <MovingMediaBanner />
         </div>
       </div>

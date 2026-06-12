@@ -20,15 +20,15 @@ const MediaMentions: React.FC = () => {
 
   const getMediaLogo = (publication: string) => {
     const logoMap: { [key: string]: string } = {
-      Malaysiakini: '/images/media/malaysiakini.png',
-      'Sinar Daily': '/images/media/sinardaily.png',
-      'Malay Mail': '/images/media/malaysiakini.png',
-      SAYS: '/images/media/says.png',
-      'Astro Awani': '/images/media/awani.png',
+      Malaysiakini: '/images/media/malaysiakini.webp',
+      'Sinar Daily': '/images/media/sinardaily.webp',
+      'Malay Mail': '/images/media/malaysiakini.webp',
+      SAYS: '/images/media/says.webp',
+      'Astro Awani': '/images/media/awani.webp',
       'Sinar Harian': '/images/media/sinarharian.webp',
-      Bernama: '/images/media/bernama.png',
+      Bernama: '/images/media/bernama.webp',
     };
-    return logoMap[publication] || '/images/media/malaysiakini.png';
+    return logoMap[publication] || '/images/media/malaysiakini.webp';
   };
 
   return (

@@ -2,23 +2,23 @@ import React from 'react';
 
 const MovingMediaBanner: React.FC = () => {
   const mediaLogos = [
-    { name: 'Malaysiakini', logo: '/images/media/malaysiakini.png' },
-    { name: 'Astro Awani', logo: '/images/media/awani.png' },
-    { name: 'Bernama', logo: '/images/media/bernama.png' },
-    { name: 'SAYS', logo: '/images/media/says.png' },
-    { name: 'Sinar Daily', logo: '/images/media/sinardaily.png' },
+    { name: 'Malaysiakini', logo: '/images/media/malaysiakini.webp' },
+    { name: 'Astro Awani', logo: '/images/media/awani.webp' },
+    { name: 'Bernama', logo: '/images/media/bernama.webp' },
+    { name: 'SAYS', logo: '/images/media/says.webp' },
+    { name: 'Sinar Daily', logo: '/images/media/sinardaily.webp' },
     { name: 'Sinar Harian', logo: '/images/media/sinarharian.webp' },
-    { name: 'BBC', logo: '/images/media/bbc.jpg' },
-    { name: 'Vice', logo: '/images/media/vice.png' },
-    { name: 'Al-Jazeera', logo: '/images/media/aljazeera.png' },
+    { name: 'BBC', logo: '/images/media/bbc.webp' },
+    { name: 'Vice', logo: '/images/media/vice.webp' },
+    { name: 'Al-Jazeera', logo: '/images/media/aljazeera.webp' },
   ];
 
   const duplicatedLogos = [...mediaLogos, ...mediaLogos];
 
   return (
-    <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 py-2 shadow-sm overflow-hidden">
-      <div className="flex items-center gap-3">
-        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-pop-pink whitespace-nowrap pl-2">
+    <div className="bg-pop-cream/85 backdrop-blur-sm rounded-full px-3 h-7 sm:h-9 flex items-center shadow-sm overflow-hidden">
+      <div className="flex items-center gap-2 sm:gap-3 w-full">
+        <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-pop-pink whitespace-nowrap pl-2">
           Featured in
         </span>
         <div className="relative flex-1 overflow-hidden">
@@ -34,7 +34,7 @@ const MovingMediaBanner: React.FC = () => {
                 <img
                   src={media.logo}
                   alt={media.name}
-                  className="h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
+                  className="h-4 sm:h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';

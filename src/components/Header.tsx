@@ -45,13 +45,13 @@ const Header: React.FC<HeaderProps> = ({ onDonateClick }) => {
   return (
     <header className="fixed top-0 w-full bg-transparent z-50">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="flex justify-between items-center h-32 sm:h-40 lg:h-48 overflow-visible">
-          <Editable id="header-logo" className="flex -ml-12 sm:-ml-16 lg:-ml-28 xl:-ml-40">
+        <div className="flex justify-between items-center h-20 sm:h-24 lg:h-28 overflow-visible">
+          <Editable id="header-logo" className="flex">
             <button onClick={goHome} className="flex items-center group" aria-label="Pocket of Pink, home">
               <img
                 src={IMAGES.logo.main}
                 alt="Pocket of Pink, Pop of Power"
-                className="h-[22rem] sm:h-[28rem] lg:h-[40rem] w-auto object-contain [filter:drop-shadow(0_0_30px_rgba(255,255,255,0.85))_drop-shadow(0_0_60px_rgba(255,255,255,0.5))]"
+                className="h-14 sm:h-16 lg:h-24 w-auto object-contain [filter:drop-shadow(0_0_30px_rgba(255,255,255,0.85))_drop-shadow(0_0_60px_rgba(255,255,255,0.5))]"
               />
             </button>
           </Editable>

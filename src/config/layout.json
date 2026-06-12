@@ -20,32 +20,11 @@
     "rotation": 0,
     "z": 0
   },
-  "hero-sticker-justice-equality": {
-    "x": 1046,
-    "y": 36,
-    "scale": 1.575787353515625,
-    "rotation": 0,
-    "z": 0
-  },
   "hero-illustration": {
-    "x": -94,
-    "y": -64,
-    "scale": 0.9378189086914063,
+    "x": -126,
+    "y": 14,
+    "scale": 0.845,
     "rotation": -0.1605879220635984,
-    "z": 0
-  },
-  "hero-sticker-feminism-fits-bottom": {
-    "x": -38,
-    "y": -44,
-    "scale": 1.7417144775390612,
-    "rotation": 0,
-    "z": 0
-  },
-  "hero-sticker-face-bun": {
-    "x": 257,
-    "y": 202,
-    "scale": 1,
-    "rotation": 0,
     "z": 0
   },
   "hero-headline-block": {
@@ -56,15 +35,8 @@
     "z": 0
   },
   "header-logo": {
-    "x": -33,
-    "y": -6,
-    "scale": 1,
-    "rotation": 0,
-    "z": 0
-  },
-  "hero-sticker-feminism-fits-top": {
-    "x": 544,
-    "y": 362,
+    "x": 0,
+    "y": 0,
     "scale": 1,
     "rotation": 0,
     "z": 0
