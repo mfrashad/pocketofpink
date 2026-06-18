@@ -57,12 +57,12 @@ const Contact: React.FC = () => {
             </p>
 
             <a
-              href="mailto:kaveesha@pocketofpink.com"
+              href="mailto:karyn@pocketofpink.com"
               onClick={() => trackEvent('contact_email_click')}
               className="inline-flex items-center gap-3 pop-link font-sans font-semibold text-lg lg:text-xl mb-10"
             >
               <Mail className="w-5 h-5" />
-              kaveesha@pocketofpink.com
+              karyn@pocketofpink.com
             </a>
 
             <div className="border-t border-pop-ink/10 pt-8">

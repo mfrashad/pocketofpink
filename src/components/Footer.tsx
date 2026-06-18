@@ -83,11 +83,11 @@ const Footer: React.FC = () => {
               Contact
             </h4>
             <a
-              href="mailto:kaveesha@pocketofpink.com"
+              href="mailto:karyn@pocketofpink.com"
               className="inline-flex items-center gap-2 text-pop-cream/85 hover:text-pop-pink transition-colors font-sans mb-5 break-all"
             >
               <Mail className="w-4 h-4 flex-shrink-0" />
-              <span>kaveesha@pocketofpink.com</span>
+              <span>karyn@pocketofpink.com</span>
             </a>
             <div className="flex gap-3">
               <a
